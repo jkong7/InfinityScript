@@ -1,0 +1,150 @@
+
+\title{The Chain Rule}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{How and when to use the chain rule}
+\noindent
+The chain rule is a derivative property that allows us to find the derivative of composite functions. It states:
+$$\frac{d}{dx}[f(g(x))]=f'(g(x))g'(x)$$
+To determine when to use the chain rule, we have to establish when functions are composite. For example, $(2x+7)^7$ is the composition of $f(x)=x^7$ and $g(x)=2x+7$ since $f(g(x))=(2x+7)^7$. On the other hand, something like $(2x^2)(\sin x)$ is not a composite function.\\
+\noindent\\
+Using the chain rule:
+\begin{align*}
+    [(2x+7)^7]' & = 7g(x)^6g'(x)\\
+                & = 7(2x+7)^6(2x+7)'\\
+                & = 14(2x+7)^6
+\end{align*}
+Once you determine the \textit{outer} and \textit{inner} functions of a composite function, using the chain rule becomes quite easy. We'll show another example:\\
+\noindent\\
+Evaluate the derivative of $\sin (5+7x)$.\\
+\noindent\\
+Here, the outer function is $f(x)=\sin x$ and the inner function is $g(x)=5+7x$. Using the chain rule:
+\begin{align*}
+    [\sin (5+7x)]' & = \sin' (5+7x)(5+7x)'\\
+                   & = 7\cos (5+7x)
+\end{align*}\\
+We can now differentiate various functions with our toolbox of derivative properties. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Differentiate the following:\\
+\noindent\\
+(a) \;\;\;\;$(4x^2+4)^3$\\
+\noindent\\
+(b) \;\;\;\;$x+\sin (4x)$\\
+\noindent\\
+(c) \;\;\;\;$\sqrt {5-8x}$ \\
+\noindent \\
+(d) \;\;\;\;$e^{3x}$ \\
+\noindent \\
+(e) \;\;\;\;$\ln(2x)$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 1.1:}\\
+\noindent\\
+(a) Using the chain rule:
+\begin{align*}
+    [(4x^2+4)^3]' & = 3(4x^2+4)^2(4x^2+4)'\\
+                  & = 24x(4x^2+4)^2
+\end{align*}\\
+\noindent\\
+(b) Using the sum property and the chain rule:
+\begin{align*}
+    (x+\sin (4x))' & = (x)'+(\sin (4x))'\\
+                 & = 1+\cos (4x)(4x)'\\
+                 & = 1+4\cos (4x)
+\end{align*}\\
+\noindent\\
+(c) We can rewrite $\sqrt {5-8x}$ as $(5-8x)^\frac{1}{2}$. From here, we just use the chain rule:
+\begin{align*}
+    [(5-8x)^\frac{1}{2}]' & = \frac{1}{2}(5-8x)^{-\frac{1}{2}}(5-8x)'\\
+                          & = -4(5-8x)^{-\frac{1}{2}}\\
+                          & = -\frac{4}{\sqrt {5-8x}}
+\end{align*}\\
+\noindent \\
+(d) Here, the outer function is $f(x)=e^x$ and the inner function is $g(x)=3x$. We therefore use the chain rule: 
+\begin{align*}
+    (e^{3x})' &=e^{3x}(3x)' \\
+              &=3e^{3x}
+\end{align*}\\
+\\
+\noindent 
+(e) Here, the outer function is $f(x)=\ln x$ and the inner function is $g(x)=2x$. We therefore use the chain rule: 
+\begin{align*}
+    [\ln(2x)]' &=\frac{1}{2x}(2x)' \\
+               &=\frac{1}{x}
+\end{align*}
+
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.2} Let $f(x)=(g(x))^3$. If $g(0)=-\frac{1}{2}$ and $g'(0)=\frac{8}{3}$, find the equation of the line tangent to $f(x)$ at $x=0$.
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 1.2:} We can begin by finding the corresponding function value to $x=0$:
+\begin{align*}
+    f(0)=(g(0))^3=\left(-\frac{1}{2}\right)^3=-\frac{1}{8}
+\end{align*}
+The slope of the tangent line is the derivative of the function at $x=0$. Finding the derivative of $f$ requires the chain rule since $(g(x))^3$ is a composition of the cube function and $g(x)$.
+\begin{align*}
+    f'(x) & = 3(g(x))^2g'(x)
+\end{align*}
+\begin{align*}
+    f'(0) & = 3(g(0))^2g'(0)\\
+          & = 3\left(-\frac{1}{2}\right)^2\left(\frac{8}{3}\right)\\
+          & = 2
+\end{align*}
+The tangent line has slope 2 and passes through the point $(0,-\frac{1}{8})$:
+$$y=2x-\frac{1}{8}$$
+\section{Recap points}
+\begin{itemize}
+    \item The chain rule allows for differentiating composite functions. It states: 
+    $$\frac{d}{dx}[f(g(x))]=f'(g(x))g'(x)$$
+    \item Before using the chain rule, determine the outer and inner functions of the composite function. As you practice more and more with the chain rule, this should come as second nature. 
+\end{itemize}
+\section{Exercises}\\
+\noindent
+\textbf{3.1} Differentiate the following:\\
+\noindent\\
+(a) $(x^2+1)^3$\\
+\noindent\\
+(b) $\cos 4x$\\
+\noindent\\
+(c) $\sqrt {11x^3+2x}$\\
+\noindent\\
+(d) $2x+(4+3x^2)^3$\\
+\noindent\\
+(e) $5\tan \sqrt x$\\
+\\
+\noindent
+(f) $e^{3x^2}+\ln(x^4)$ \\
+\\
+\noindent 
+\textbf{3.2} Let $f(x)=g(h(x))$. If $h(-1)=2$, $h'(-1)=3$, and $g'(2)=-4$, find $f'(-1)$.\\ 
+\end{document}

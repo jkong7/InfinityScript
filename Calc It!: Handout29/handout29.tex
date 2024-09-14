@@ -1,0 +1,104 @@
+\title{Length of a Curve}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Deriving the length of a curve formula}
+\noindent
+In this section, we will derive and use the formula for the length of a curve using integral calculus. \\
+\\
+\noindent 
+We will begin with the proof of the formula, which primarily consists of clever usage of the Pythagorean theorem and the mean value theorem. \\
+\\
+\noindent 
+To start, take a look at the image below:  \\
+\\
+\noindent 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{yuh.png}
+\end{figure}\\
+\\
+\\
+Let $f(x)$ be the continuous curve on the interval $[a,b]$ as shown above. We denote $x$-coordinates of equal intervals $\Delta x$ between them as $x_0, x_1, x_2,..., x_{i-1}, x_{i-2},..., x_{n}$. We will focus on the points on the curve that have such respective $x$-coordinates. \\
+\\
+\noindent 
+Let $\lvert P_{i-1}P_i \rvert$ denote the length of the segment that connects points $P_{i-1}$ and $P_{i}$. For example, $\lvert P_{1}P_2 \rvert$ denotes the length of the segment connecting $P_1$ and $P_2$. Then, the length of the curve, which we will denote as $L$, is approximately the sum of all these lengths: 
+$$L \approx \sum_{i=1}^{n} \lvert P_{i-1}P_i \rvert$$
+Each point $P_i$ has the coordinate $(x_i,y_i)$. Then, by the distance formula 
+$$\lvert P_{i-1}P_i \rvert=\sqrt{(x_i - x_{i-1})^2 + (y_i - {y_{i-1}})^2$$
+\noindent
+$x_i - x_{i-1}$ is simply the width of the intervals we originally defined as $\Delta x$ and $y_i - y_{i-1}$ can be denoted as $\Delta y_i$. Then, we have that 
+
+$$\lvert P_{i-1}P_i \rvert=\sqrt{{{(\Delta x)^2}}+{(\Delta y_i)^2}}$$
+Next, we turn to the mean value theorem, which tells us that there exists some $x_i^{\ast}$ on $(x_{i-1}, x_i)$ such that 
+$$f'({x_i}^{\ast})=\frac{\Delta y_i}{\Delta x}$$
+Rearranging terms, we have that 
+$$\Delta y_i=f'({x_i}^{\ast})\Delta x$$
+Substituting this into our segment length equation yields 
+
+$$\lvert P_{i-1}P_i\rvert=\sqrt{(\Delta x)^2+(f'({x_i}^{\ast})\Delta x)^2}$$
+After simplification, this becomes 
+$$\lvert P_{i-1}P_i\rvert= \sqrt{1+[f'({x_i}^\ast)]^2}\Delta x$$
+Our approximation for the length of the curve is then 
+$$L \approx \sum_{i=1}^{n} \sqrt{1+[f'({x_i}^\ast)]^2}\Delta x$$
+To make this exact, we want the interval $\Delta x$ to be infinitesimally small so that there are as many line segments as possible. We achieve this by taking the limit as $n$ approaches infinity: 
+$$L=\lim_{n \to \infty} \sum_{i=1}^{n}  \sqrt{1+[f'({x_i}^\ast)]^2} \Delta x$$
+This can be written using the definite integral and with $\frac{dy}{dx}$ instead of $f'({x_i}^\ast)$ for our finished form: 
+$$L=\int_{a}^{b}\sqrt{1+\left(\frac{dy}{dx}\right)^2} \ dx$$
+Note that for this formula to apply, $f(x)$ \textit{must} be continuous on the interval $[a,b]$. 
+\section{Length of a curve problem}
+\noindent 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Set up an integral expression for the arc length of $y=3x^2$ over the interval $[0,3]$. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.1:}
+The arc length formula is $L = \int_{a}^{b} {\sqrt{1+{\left(\frac{dy}{dx}\right)}^2}} \ dx$. We know the bounds of our integral are $a=0$ and $b=3$. We next take the derivative of the function: 
+$$\frac{dy}{dx}=6x$$
+\noindent 
+Finally, our integral expression is 
+\begin{align*}
+L &=\int_0^3 \sqrt{1+(6x)^2} \ dx \\
+  &=\int_0^3 \sqrt{1+36x^2} \ dx
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item The length of a continuous function $y=f(x)$ on the interval $[a,b]$ is as follows: 
+    $$L=\int_{a}^{b}\sqrt{1+\left(\frac{dy}{dx}\right)^2} \ dx$$
+    \item The main idea behind the proof of this expression is to sum infinitesimally small line segments that together resemble the curve. Within the proof, the distance formula, Pythagorean theorem, mean value theorem, and limits are used. 
+    \item Most length of a curve problems ask only for you to set up the integral expression. 
+\end{itemize}
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{4.1} Set up an integral expression for the arc length of $y=\sin(x)$ over the interval $[0,\pi]$.\\
+\\
+\noindent 
+\textbf{4.2} Set up an integral expression for the arc length of $y=4x^{\frac{3}{2}}$ over the interval $[0,4]$. 
+\end{document}

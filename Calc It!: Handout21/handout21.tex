@@ -1,0 +1,229 @@
+\title{Integration by Partial Fractions}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Partial fraction decomposition}
+\noindent
+In this section, we will use an integration method that allows for integrating rational functions, which are functions that are the ratio of two polynomial functions. \\
+\\
+\noindent
+To start, take a look at the following sum: 
+$$\frac{5}{x-4}+\frac{2}{x-1}$$
+We can use a common denominator to express it as a single fraction: 
+$$\frac{5}{x-4}+\frac{2}{x-1}=\frac{5(x-1)+2(x-4)}{(x-4)(x-1)}=\frac{7x-13}{x^2-5x+4}$$
+Next, note that if we were to integrate the expression, it is much easier to integrate the sum of two fractions:
+\begin{align*}
+    \int{\frac{7x-13}{x^2-5x+4} \ dx} &=\int{\frac{5}{x-4} \ dx }+\int{\frac{2}{x-1} \ dx} \\ 
+                                      &=5\ln \lvert x-4 \rvert+2\ln \lvert x-1 \rvert + C
+\end{align*}
+\noindent 
+We say that the \textbf{partial fraction decomposition} of $\frac{7x-13}{x^2-5x+4}$ is $\frac{5}{x-4}+\frac{2}{x-1}$ and that $\frac{5}{x-4}$ and $\frac{2}{x-1}$ are the \textbf{partial fractions}. \\
+\\
+\noindent 
+Because we know how to integrate the individual partial fractions, if we can provide a partial fraction decomposition for any rational function, we can integrate it. This is the idea behind integration by partial fractions. \\
+\\
+\noindent 
+Our process for the function above is as follows: \\
+\\
+\noindent 
+Given the function $\frac{7x-13}{x^2-5x+4}$, we try to find two constants $A$ and $B$ such that 
+$$\frac{7x-13}{x^2-5x+4}=\frac{7x-13}{(x-4)(x-1)}=\frac{A}{x-4}+\frac{B}{x-1}$$
+We multiply both sides by $(x-4)(x-1)$: 
+$$7x-13=A(x-1)+B(x-4)$$
+We could expand and simplify the equation and then solve a system of two equations. However, note that because the equation holds for all $x$, we could set $x$ as anything and in particular $x=1$ or $x=4$ to eliminate one of $A$ and $B$. Setting $x=1$ gives 
+$$-6=-3B \Rightarrow B=2$$
+and setting $x=4$ gives 
+$$15=3A \Rightarrow A=5$$
+Therefore, our partial fraction decomposition is 
+$$\frac{7x-13}{x^2-5x+4}=\frac{5}{x-4}+\frac{2}{x-1}$$
+just as shown above. We will now highlight the steps and forms for partial fraction decomposition in greater detail. \\
+\\
+\noindent 
+Our first step in partial fraction decomposition is to factor the denominator into linear and irreducible quadratic factors such that all factors will have the form 
+$$(ax+b)^m \ \ \ \ \text{or} \ \ \ \ (ax^2+bx+c)^m$$
+We will first focus only on linear factors. The rule is as follows: \\
+\\
+\noindent 
+For each factor of the form $(ax+b)^m$ in the denominator, the partial fraction decomposition contains the following sum: 
+$$\frac{A}{ax+b}+\frac{B}{(ax+b)^2}+\frac{C}{(ax+b)^3}+...+\frac{A_m}{(ax+b)^m}$$
+where $A,B,C,...,A_m$ are constants that we want to determine. Let's look an example that deals with setting up a partial fraction decomposition:
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Set up the partial fraction decomposition for the function $f(x)=\frac{x^2+3x+1}{(x+2)(x+1)^2}$.
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 1.1:} The factor $x+2$ is linear and appears only to the first power, so by the linear factor rule, it contributes the following one term to the partial fraction decomposition: 
+$$\frac{A}{x+2}$$
+The factor $x+1$ on the other hand appears to the second power, so by the linear factor rule, it contributes the following two terms to the partial fraction decomposition: 
+$$\frac{B}{x+1}+\frac{C}{(x+1)^2}$$
+Therefore, the full partial fraction decomposition setup is 
+$$\frac{x^2+3x+1}{(x+2)(x+1)^2}=\frac{A}{x+2}+\frac{B}{x+1}+\frac{C}{(x+1)^2}$$
+\noindent 
+We will next examine quadratic factors. The rule is as follows: \\
+\\
+\noindent 
+For each factor of the form $(ax^2+bx+c)^m$, the partial fraction decomposition contains the following sum: 
+$$\frac{Ax+B}{ax^2+bx+c}+\frac{Cx+D}{(ax^2+bx+c)^2}+\frac{Ex+F}{(ax^2+bx+c)^3}+...+\frac{A_mx+B_m}{(ax^2+bx+c)^m}$$
+Let's take a look at an example that deals with both linear and quadratic terms: 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.2} Set up the partial fraction decomposition for the function $f(x)=\frac{5x^4+3x^3+8x^2+12x+7}{(x+1)(x^2-3)^2}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 1.2:} The factor $x+1$ is linear and appears only to the first power, so by the linear factor rule, it contributes the following one term to the partial fraction decomposition: 
+$$\frac{A}{x+1}$$
+\noindent 
+The factor $x^2-3$ on the other hand is a quadratic factor and appears to the second power, so by the quadratic factor rule, it introduces the following two terms to the partial fraction decomposition: 
+$$\frac{Bx+C}{x^2-3}+\frac{Dx+E}{(x^2-3)^2}$$
+\noindent 
+Therefore, the full partial fraction decomposition is 
+$$\frac{5x^4+3x^3+8x^2+12x+7}{(x+1)(x^2-3)^2}=\frac{A}{x+1}+\frac{Bx+C}{x^2-3}+\frac{Dx+E}{(x^2-3)^2}$$
+\section{Integration by partial fractions-linear factors}
+\noindent 
+The steps for integration by partial fractions should be quite clear by now. First, if the denominator of the rational function is not yet fully factored, we factor it into linear and irreducible quadratic factors. We then set up and solve the partial fraction decomposition. Finally, we integrate the function by integrating the individual partial fractions. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Evaluate $\int{\frac{2x-3}{x^2-3x-10} \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.1:} The first step is to find the partial fraction decomposition. The set up is as follows: 
+$$\frac{2x-3}{x^2-3x-10}=\frac{2x-3}{(x-5)(x+2)}=\frac{A}{x-5}+\frac{B}{x+2}$$
+Next, we have that 
+$$2x-3=A(x+2)+B(x-5)$$
+Setting $x=5$ gives 
+$$7=7A \Rightarrow A=1$$
+and setting $x=-2$ gives 
+$$-7=-7B \Rightarrow B=1$$
+The integration is then as follows: 
+\begin{align*}
+    \int{\frac{2x-3}{x^2-3x-10} \ dx} &=\int{\frac{1}{x-5} \ dx}+\int{\frac{1}{x+2} \ dx} \\
+                                      &=\ln \lvert x-5 \rvert+ \ln \lvert x+2 \rvert +C
+\end{align*}
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Evaluate $\int{\frac{2x^2+3}{x^3-2x^2+x} \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.2:} The set up for the partial fraction decomposition is as follows: 
+$$\frac{2x^2+3}{x^3-2x^2+x}=\frac{2x^2+3}{x(x-1)^2}=\frac{A}{x}+\frac{B}{x-1}+\frac{C}{(x-1)^2}$$
+\noindent 
+Next, we have that 
+$$2x^2+3=A(x-1)^2+Bx(x-1)+Cx$$
+\noindent 
+Setting $x=1$ gives 
+$$5=C$$
+and setting $x=0$ gives 
+$$3=A(-1)^2 \Rightarrow A=3$$
+\noindent 
+Finally, we note that $2x^2=Ax^2+Bx^2 \Rightarrow 2=A+B$ so $B=-1$.
+\noindent 
+The integration is then as follows: 
+\begin{align*}
+    \int\frac{2x^2+3}{x^3-2x^2+x} \ dx &=\int{\frac{3}{x} \ dx}-\int{\frac{1}{x-1} \ dx}+\int{\frac{5}{(x-1)^2} \ dx} \\
+\end{align*}
+\noindent 
+We can apply the $u$-substitution $u=x-1 \Rightarrow du=dx$ to the third term: 
+\begin{align*}
+    \int{\frac{5}{(x-1)^2} \ dx} &=5\int{\frac{du}{u^2}} \\
+                                 &=5(-\frac{1}{u})+C \\
+                                 &=\frac{-5}{x-1}+C
+\end{align*}
+Finally, we have that 
+$$\int{\frac{2x^2+3}{x^3-2x^2+x} \ dx}=3 \ln \lvert x \rvert -\ln \lvert x-1 \rvert -\frac{5}{x-1}+C $$
+\section{Integration by partial fractions-quadratic factors}
+We will now integrate a rational function with quadratic factors. The process is still the same as before but just note the different form of quadratic factors when doing the partial fraction decomposition. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Evaluate $\int{\frac{2x-3}{x^3+x} \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 3.1:} The set up for the partial fraction decomposition is as follows: 
+$$\frac{2x-3}{x^3+x}=\frac{2x-3}{x(x^2+1)}=\frac{A}{x}+\frac{Bx+C}{x^2+1}$$
+\noindent 
+Next, we have that 
+$$2x-3=A(x^2+1)+(Bx+C)x$$
+\noindent 
+Setting $x=0$ gives 
+$$-3=A$$
+\noindent 
+Note that $0=Ax^2+Bx^2 \Rightarrow 0=A+B$ so $B=3$ and $2x=Cx \Rightarrow 2=C$. The integration is then as follows: 
+\begin{align*}
+    \int{\frac{2x-3}{x^3+x} \ dx} &= \int{-\frac{3}{x} \ dx}+\int{\frac{3x+2}{x^2+1} \ dx} \\
+                                  &= -3\int{\frac{1}{x} \ dx} + 3\int{\frac{x}{x^2+1} \ dx}+2\int{\frac{1}{x^2+1} \ dx}
+\end{align*}
+\noindent 
+The two integrals on the right are very common when integrating by partial fractions. For the middle integral, we use the $u$-substitution $u=x^2+1 \Rightarrow du=2x\ dx\Rightarrow \frac{1}{2}du=x \ dx$: 
+\begin{align*}
+    3\int{\frac{x}{x^2+1} \ dx} &= \frac{3}{2}\int{\frac{du}{u}} \\
+                                &=\frac{3}{2} \ln \lvert u \rvert +C \\
+                                &=\frac{3}{2} \ln \lvert x^2+1 \rvert + C
+\end{align*}
+\noindent 
+As for the integral on the right: 
+$$2\int{\frac{1}{x^2+1} \ dx}=2 {\tan}^{-1} x + C$$
+Finally, we have that 
+$$\int{\frac{2x-3}{x^3+x} \ dx}=-3 \ln \lvert x \rvert+\frac{3}{2} \ln \lvert x^2+1 \rvert +2\tan^{-1} x + C$$
+
+\section{Integration by partial fractions-improper rational functions}
+\noindent 
+Up to this point, we have not dealt with improper rational functions, which are rational functions with numerators of degree greater than or equal to the degree of the denominator. \\
+\\
+\noindent 
+The first step is to perform polynomial long division. After this, we will have a rational function whose denominator has greater degree than its numerator. We then perform partial fraction decomposition as we normally would. Finally, when integrating, remember to include the remainder of the polynomial long division.
+\noindent 
+As an example, take a look at the following integral: 
+$$\int{\frac{x^4-5x^3+6x^2-18}{x^3-3x^2} \ dx}$$
+\noindent 
+Because the degree of the numerator is greater than that of the denominator, this is an improper rational function. The first step is then to perform polynomial long division, which yields: 
+$$\frac{x^4-5x^3+6x^2-18}{x^3-3x^2}=x-2-\frac{18}{x^3-3x^2}$$
+\noindent 
+From here, we perform partial fraction decomposition on $-\frac{18}{x^3-3x^2}$ as we normally would and integrate the result, keeping in mind that $x-2$ is also included.
+\section{Recap points}
+\begin{itemize}
+    \item We perform partial fraction decomposition to express a rational function in terms of its partial fractions. Doing so is the first step when integrating by partial fractions. 
+    \item Linear factors of the form $(ax+b)^m$ in the denominator of a rational function introduce the following sum in the partial fraction decomposition: 
+    $$\frac{A}{ax+b}+\frac{B}{(ax+b)^2}+\frac{C}{(ax+b)^3}+...+\frac{A_m}{(ax+b)^m}$$
+    \item Quadratic factors of the form $(ax^2+bx+c)^m$ in the denominator of a rational function introduces the following sum in the partial fraction decomposition: 
+    $$\frac{A}{ax+b}+\frac{B}{(ax+b)^2}+\frac{C}{(ax+b)^3}+...+\frac{A_m}{(ax+b)^m}$$
+    \item When integrating improper rational functions, the first step is to perform polynomial long division. 
+\end{itemize}
+\section{Exercises} 
+\noindent 
+\textbf{6.1} Evaluate $\int{\frac{x-4}{x^2+2x-15} \ dx}$ \\
+\\
+\noindent 
+\textbf{6.2} Evaluate $\int{\frac{1}{x^2-4}} \ dx$ \\
+\\
+\noindent 
+\textbf{6.3} Evaluate $\int{\frac{1}{x^4-16} \ dx}$\\
+\\
+\noindent 
+\textbf{6.4} Evaluate $\int{\frac{x^5+2}{x^3(x+2)}} \ dx$
+\end{document}

@@ -1,0 +1,149 @@
+\title{Curve Sketching}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Steps and process for curve sketching}
+\noindent
+In this section, we will apply the concepts from the previous two sections to fully sketch graphs of functions. \\
+\\
+\noindent 
+Calculus is used to determine intervals where a function is increasing/decreasing, where a function is concave up/down, relative extrema, as well as points of inflection. \\
+\\
+\noindent 
+However, other qualities of a function to note that don't require calculus are $x$ and $y$-intercepts, domain and range, as well as potential asymptotes. \\
+\\
+\noindent 
+The process of curve sketching we will adopt to is as follows: 
+\begin{enumerate}
+    \item Find the domain and range.
+    \item Find the $x$ and $y$-intercepts.
+    \item Find the asymptotes 
+    \item Take the first derivative of the function and find its critical points.
+    \item Create a sign chart to determine relative extrema as well as the intervals where the function is increasing/decreasing.
+    \item Take the second derivative of the function and find the critical numbers for that. 
+    \item Create a sign chart to determine points of inflection as well as the intervals where the function is concave up/down.
+    \item Plot important points such as points of inflection, relative extrema, and $x$ and $y$-intercepts. 
+    \item Put all the information together and sketch!
+\end{enumerate}
+\noindent 
+The function analysis needed for curve sketching ultimately has three portions, which consists of basic function analysis, first derivative analysis, and second derivative analysis.
+\section{Putting it all together}
+\noindent 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Analyze and sketch the graph of the function $f(x)=-x^3+6x^2+10$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.1:} We use the process written above to get all the necessary information for sketching the graph of the function: \\
+\\
+\noindent 
+1. Basic function analysis: We begin by finding the domain and range of the function. There are no restrictions for the $x$-values the function can take in so the domain is $(-\infty, \infty)$, or all real numbers. Likewise, considering the end behavior of a cubic function, the range is also all real numbers. \\
+\\
+\noindent 
+Next, we find the intercepts of the function. Setting $x=0$ gives that the $y$-intercept is $(0,10)$ and setting $y=0$ gives that the $x$-intercept is approximately $(6.256, 0)$. \\
+\\
+\noindent 
+As for asymptotes, we see that there are no horizontal asymptotes as the function does not smooth out to any particular $y$-value. There are also no vertical asymptotes since the domain of the function is all real numbers. 
+\\
+\\
+\noindent 
+2. First derivative analysis: We begin by taking the first derivative of the function and finding the critical points: 
+$$f'(x)=-3x^2+12x=0$$
+$$3x(-x+4)=0$$
+$$x=0,4$$
+\noindent 
+We then create a sign chart to determine relative extrema and intervals where the function is increasing/decreasing: \\
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+\begin{center}
+\sgchart{0,4}  {f'(x): -+-}
+\end{center}
+\noindent 
+Therefore, the function is decreasing on the intervals $(-\infty, 0)$ \text{and} $(4, \infty)$ and increasing on the interval $(0,4)$. As given by the first derivative test, because the sign of the derivative changes from negative to positive at $x=0$, there is a relative minimum at $(0,f(0)) \Rightarrow (0,10)$ and because the sign of the derivative changes from positive to negative at $x=4$, there is a relative maximum at $(4, f(4)) \Rightarrow (4, 42)$. \\
+\\
+\noindent 
+3. Second derivative analysis: We begin by taking the second derivative of the function and finding the critical points: 
+$$f''(x)=-6x+12=0$$
+$$x=2$$
+\noindent 
+Here, it is quite easy to note that for $x>2$, $f''(x)<0$ and for $x<2$, $f''(x)>0$ without the use of a sign chart. Therefore, the function is concave down on the interval $(2, \infty)$ and concave up on the interval $(-\infty, 2)$. As given by the definition of an inflection point, because the sign of $f''(x)$ changes at $x=2$, there is a point of inflection at $(2, f(x)) \Rightarrow (2, 26)$. \\
+\\
+\noindent 
+4. Curve sketching: We begin by plotting all the points of importance, which consist of the point of inflection, relative extrema, and intercepts: 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm]{Screenshot (515).png}
+\end{figure}
+\newpage
+\noindent 
+Next, we gather all the information we have collected to analyze each interval of importance.
+\begin{enumerate}
+    \item $(-\infty, 0)$: Decreasing and concave up
+    \item $(0, 2)$: Increasing and concave up
+    \item $(2, 4)$: Increasing and concave down 
+    \item $(4, 6.256)$: Decreasing and concave down 
+    \item $(6.256, \infty)$: Decreasing and concave down 
+\end{enumerate} 
+\noindent 
+Putting this all together, we can sketch the graph of the function: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7.5cm]{Screenshot (516).png}
+\end{figure} \\
+\\
+\noindent 
+Following the process we used above, we can sketch the curve of any function. Things may get complicated when there are many more intervals to worry about or when we are dealing with more unconventional functions. 
+\section{Recap points}
+\begin{itemize}
+    \item By analyzing the first and second derivative properties of a function, as well as basic qualities such as intercepts and asymptotes, we can fully sketch out the graph of functions. 
+    \item Basic function analysis consists of domain and range, intercepts, and asymptotes 
+    \item First derivative analysis consists of critical points, extrema, and intervals of increase/decrease. 
+    \item Second derivative analysis consists of concavity and points of inflection. 
+\end{itemize}
+\section{Exercises}\\
+\noindent 
+\textbf{4.1} Analyze and sketch the graph of the function $f(x)=-x^3+6x^2$.
+\end{document}

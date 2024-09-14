@@ -1,0 +1,145 @@
+\title{Definition of the Derivative}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+\section{Limit definition of the derivative}
+\noindent
+Now that we've looked through the concept of the limit, we can continue our study of calculus with the derivative. \\
+\\
+\noindent
+The derivative is concerned with slope, a fairly simple concept. Let's look at the slope between two points on a function $f(x)$:
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{Screenshot (368).png}
+\end{figure}\\
+\noindent
+The left point has coordinate $(x, f(x))$. We denote the difference in $x$-value between the two points as $h$, so the coordinate of the right point is $(x+h, f(x+h))$. \\
+\\
+\noindent 
+A \textbf{secant} line is a line that intersects a curve at two points. We can determine the slope of the secant line that passes through the two points above:
+$$\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(x+h)-f(x)}{h}$$
+A \textbf{tangent} line is a line that intersects a curve at one point. Using our knowledge of the secant line above, how can we find the slope of the tangent line that intersects the curve at the point $(x,f(x))$? \\
+\\
+\noindent
+We can do this by decreasing the distance $h$ between the two points until the distance is so small the line eventually intersects only one point. To write this \say{decreasing of $h$} in mathematical terms, we use limits! We want to use the slope between the two points but have $h$ be infinitesimally small, which we can represent using the following limit: 
+$$\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$$
+\begin{figure}[h!]
+\centering
+\includegraphics[width=6cm]{Screenshot (390).png}
+\end{figure}\\
+The slope of the tangent line to the function $f$ at the point $(x,f(x))$ is called the \textbf{derivative} of $f$ at point $(x,f(x))$. Therefore, we have the following definition: \\
+\\
+\noindent
+The derivative of the function $f$ at the point $x=a$ is 
+$$\lim_{h \to 0} \frac{f(a+h)-f(a)}{h}$$
+If this limit exists, $f$ is \textbf{differentiable} at $x=a$. $f$ is called differentiable if it is differentiable at every point in its domain.\\
+\\
+\noindent
+We can also consider the derivative as a function instead of considering it at each point: \\
+\\
+\noindent
+The derivative of the function $f$ is 
+$$\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$$
+where $x$ represents all points in the domain of $f$ where the limit exists. \\
+\\
+\noindent 
+We denote the derivative function of $f$ as $f'(x)$ (\say{$f$ prime of $x$}). We denote the derivative of $f$ at $x=a$ as $f'(a)$. There are also other notations for the derivative. The other notation that we will use is called the differential notation: 
+$$\frac{d}{dx}f(x)$$
+\noindent 
+The concept we covered above should be quite intuitive. The only thing separating the secant line from the tangent line was the difference $h$ in $x$-values. If $h$ is taken as a limit to zero, the two points essentially converge to one, and therefore the secant line turns to a tangent line. 
+\section{Tangent line and derivative problems}
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Find the slope of the tangent line to $f(x)=x^2+2x$ at $x=3$. 
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.1:} We want to find the slope of the tangent line at $x=3$, which by definition, is $f'(3)$. We use the definition of the derivative to compute this:
+\begin{align*}
+    f'(3) &= \lim_{h \to 0} \frac{f(3+h)-f(3)}{h} \\
+          &= \lim_{h \to 0} \frac{(3+h)^2+2(3+h)-(9+6)}{h}\\
+          &= \lim_{h \to 0} \frac{h^2+8h}{h}\\
+          &= \lim_{h \to 0} (h+8)\\
+          &= 8
+\end{align*}
+Therefore, the slope of the tangent line to $f$ at $x=3$ is 8. \\
+\\
+\noindent 
+In the next problem, we use the derivative to find the equation of a tangent line. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\noindent
+\textbf{Problem 2.2} Find the equation of the tangent line to $f(x)=2x^2$ at $x=4$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.2:} The slope of the tangent line to $f$ at $x=4$ is $f'(4)$:
+\begin{align*}
+    f'(4) &=\lim_{h \to 0} \frac{f(4+h)-f(4)}{h}\\
+          &=\lim_{h \to 0} \frac{2(4+h)^2-32}{h}\\
+          &=\lim_{h \to 0} \frac{2h^2+16h}{h}\\
+          &=\lim_{h \to 0} (2h+16)\\
+          &= 16
+\end{align*}
+The $y$-value of the function at $x=4$ is $f(4)=32$. Therefore, our equation is of the line with slope 16 and which passes through the point $(4,32)$: 
+$$y=16x-32$$
+\noindent 
+We next find the general derivative for a function. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.3} Find the derivative of $f(x)=x^3$.
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.3:} The derivative of $f$ is the function $f'(x)$. We can find this using the definition of the derivative: 
+\begin{align*}
+    f'(x) &= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\\
+          &= \lim_{h \to 0} \frac{(x+h)^3-(x^3)}{h}\\
+          &= \lim_{h \to 0} \frac{3x^2h+3xh^2+h^3}{h}\\
+          &= \lim_{h \to 0} (3x^2+3xh+h^2)\\
+          &= 3x^2
+\end{align*}
+Note that we can use this to compute the derivative of $f$ at any point $x$ in its domain. For example, the slope of the tangent line to $f$ at $x=4$ is $f'(4)=3(4^2)=48$. 
+\section{Recap points}
+\begin{itemize}
+    \item The derivative of a function at a point $x=a$ is the slope of the tangent line at $x=a$.  
+    \item The slope of the secant line between two points $(x, f(x))$ and $(x+h, f(x+h))$ is as follows: 
+    $$\frac{f(x+h)-f(x)}{h}$$
+    \item To determine the slope of the tangent line passing through $(x, f(x))$, we decrease $h$ in the expression above until it is infinitesimally small. This gives the definition of the derivative: 
+    $$\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}$$
+    \item $f'(x)$ and $\frac{d}{dx}f(x)$ are the two most common derivative notations. 
+\end{itemize}
+\section{Exercises}\\
+\noindent
+\textbf{4.1} Find the slope of the tangent line to $f(x)=x^2+2x+1$ at $x=3$. \\
+\\
+\noindent
+\textbf{4.2} Find the equation of the tangent line to $f(x)=3x^2+1$ at $x=5$. \\
+\\
+\noindent
+\textbf{4.3} Find the derivative of $f(x)=x^4+1$.
+\end{document} 
+

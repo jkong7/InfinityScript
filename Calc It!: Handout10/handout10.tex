@@ -1,0 +1,208 @@
+\title{Analytical Applications of the Derivative: Part Two}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Relative extrema}
+\noindent
+In this section, we will use the derivative to find minimum and maximum values of functions, which are called \textbf{extrema}.  We will begin with \textbf{relative extrema}, which are maximum or minimum values of a function on some smaller interval within the domain of the function. The formal definition for relative extrema is as follows: \\
+\\
+\noindent 
+Given $f(x)$ as a function: 
+\begin{itemize}
+    \item $f(c)$ is a relative maximum if there exists an interval $(a,b)$ containing $c$ such that for all $x$ in $(a,b)$, 
+    $$f(x)\leq f(c)$$
+    \item $f(c)$ is a relative minimum if there exists an interval $(a,b)$ containing $c$ such that for all $x$ in $(a,b)$, 
+    $$f(x)\geq f(c)$$
+\end{itemize}
+\noindent 
+Simply put, relative extrema are the largest or smallest $y$-values in some neighborhood of the function. We can visualize them as hills or bumps in functions. Examine the graph below: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot (574).png}
+\end{figure} \\
+\\
+\noindent 
+Each of the labeled points are a maximum or minimum in some respective interval within the function and are therefore relative extrema. Geometrically, you may have noted that each relative extrema seems to be a \say{stopping point} for the function where it completely flattens out. In other words, the tangent line to the graph has a slope of zero at each relative extrema. Recall that this condition is what makes a point a critical point. We therefore have the following connection: \\
+\\
+\noindent 
+Relative extrema of a continuous function must occur at critical points. \\
+\\
+\noindent
+However, critical points are not necessarily relative extrema. The following concept addresses this. 
+\section{First derivative test}
+\noindent 
+The \textbf{first derivative test} allows us to determine whether critical points are relative extrema as well as which type of extrema they are. It states: \\
+\\
+\noindent 
+Let $x=c$ be a point in the domain of a function $f$ such that $f'(c)=0$. Then: 
+\begin{itemize}
+    \item If $f$ is increasing on an open interval to the left of $c$ and $f$ is decreasing on an open interval to the right of $c$, then $f(c)$ is a relative maximum. 
+    \item If $f$ is decreasing on an open interval to the left of $c$ and $f$ is increasing on an open interval to the right of $c$, then $f(c)$ is a relative minimum. 
+\end{itemize}
+\noindent 
+In short, if the sign of $f'$ changes at a critical point $x=c$, there is a relative extrema there. To determine which type it is, we see if $f'$ changes from positive to negative or negative to positive. \\
+\\
+\noindent 
+This should be quite easy to visualize geometrically. If a function changes from increasing to decreasing or decreasing to increasing, there must be a point where the function \say{flattens out}. This point is the relative extrema. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Using the first derivative test, find all relative extrema for the function $f(x)=x^4-8x^2+20$. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.1:} We first need the first derivative of the function: 
+$$f'(x)=4x^3-16x$$
+\noindent 
+We then find the critical points: 
+$$4x^3-16x=0$$
+$$4x(x^2-4)=0$$
+$$4x(x-2)(x+2)=0$$
+$$x=0,2,-2$$
+\noindent 
+From here, we use the first derivative test to analyze each critical point. We create the following sign chart: 
+\begin{figure} [htp]
+\centering
+\begin{BVerbatim}
+f'         -   |   +   |   -   |   +   
+       <-------|-------|-------|------->
+              -2   -   0   -   2   -     
+\end{BVerbatim}
+\end{figure}
+\\
+\noindent 
+$f'$ changes from negative to positive at $x=-2$ and $x=2$ and changes from positive to negative at $x=0$. Therefore, by the first derivative test, $f(-2)=f(2)=4$ is the relative minimum and $f(0)=20$ is the relative maximum.
+\section{Second derivative test}
+\noindent 
+The \textbf{second derivative test}, like the first derivative test, is used to determine whether a critical point is a relative maximum or a local minimum. It states: \\
+\\
+\noindent 
+Let $x=c$ be a point in the domain of a function $f$ such that $f'(c)=0$. Then: 
+\begin{itemize}
+    \item If $f''(c)<0$, then $f(c)$ is a local maximum.
+    \item If $f''(c)>0$, then $f(c)$ is a local minimum. 
+\end{itemize}
+\noindent 
+Like with the first derivative test, we first find critical points. After this, we simply need to analyze the sign of the second derivative at each critical point to make a conclusion. A downside of the second derivative test is that if $f''(c)=0$, the test is inconclusive.\\
+\\
+\noindent 
+Geometrically, the reasoning of the second derivative test is that for a value to be a relative maximum, it must be at the top of a upside-down hill, which means that the function is concave down. Similarly, for a value to be a relative minimum, it must be at the bottom of a bowl shaped hill, which means that the function is concave up. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Using the second derivative test, find all relative extrema for the function $f(x)=x^4-2x^2+2$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 3.1:} We first need the first derivative of the function: 
+$$f'(x)=4x^3-4x$$
+\noindent 
+We then find the critical points: 
+$$4x^3-4x=0$$
+$$4x(x^2-1)=0$$
+$$x=0,1,-1$$
+\noindent 
+From here, we use the second derivative test to analyze each critical point. We will first need the second derivative of the function: 
+$$f''(x)=12x^2-4$$
+\noindent 
+We analyze the sign of the second derivative at each critical point: 
+$$f''(0)=-4<0$$
+$$f''(-1)=8>0$$
+$$f''(1)=8>0$$
+Therefore, by the second derivative test, $f(-1)=f(1)=1$ is the relative minimum and $f(0)=2$ is the relative maximum.
+\section{Absolute extrema and the candidates test}
+\noindent 
+We will next explore minimum and maximum values of functions over entire intervals, which are known as \textbf{absolute extrema}. The formal definition for absolute extrema is as follows: \\
+\\
+\noindent 
+Given $f(x)$ as a function defined on an interval $I$:
+\newpage
+\begin{itemize}
+    \item $f(c)$ is an absolute maximum if $f(c)\leq f(x)$ for all $x$ in $I$. 
+    \item $f(c)$ is an absolute minimum if $f(c) \geq f(x)$ for all $x$ in $I$. 
+\end{itemize} \\
+\\
+\noindent 
+Examine the graph below: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot (575).png}
+\end{figure}
+\\
+\noindent
+Here, the absolute maximums occur at the endpoints of the interval, which are the points labeled A and C. The absolute minimum occurs at a relative minimum, which is the point labeled B. The generalization for absolute extrema is that they either occur at endpoints of the interval or at relative extrema. We can use what is known as the \textbf{candidates test} to find absolute extrema: \\
+\\
+\noindent 
+Given $f(x)$ as a function on a closed interval $[a,b]$: 
+\begin{enumerate}
+    \item Determine all the critical points of $f(x)$ in $(a,b)$. 
+    \item Evaluate $f(x)$ at each of those critical points.
+    \item Evaluate $f(x)$ at the endpoints $a$ and $b$.
+    \item The least of these values is the absolute minimum, and the greatest is the absolute maximum. 
+\end{enumerate}
+\noindent 
+The critical point steps allow us to determine whether the relative extrema are the absolute maximum/minimum. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 4.1} Find all absolute extrema for the function $f(x)=4x^3-16x^2$ on the interval $[-1,1]$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 4.1:} Using the candidates test, we first find the critical points of the function: 
+$$f'(x)=12x^2-32x$$
+$$12x^2-32x=0$$
+$$4x(3x-8)=0$$
+$$x=0,\frac{8}{3}$$
+\noindent 
+Because $x=\frac{8}{3}$ is not in the interval $(-1,1)$, it has no use. 
+We now have three candidates, which are the one critical point and the two endpoints. Our next step is to evaluate the function at each of these values: 
+$$f(0)=0$$
+$$f(-1)=-20$$
+$$f(1)=-12$$
+\noindent 
+The least of these values is $-20$, so that is the absolute minimum. The greatest of these values is $0$, so that is the absolute maximum. 
+\section{Recap points}
+\begin{itemize}
+    \item Relative extrema are minimum and maximum values of a function on some smaller interval within the domain of the function. Visualize them as hills or bumps within the graph of the function. 
+    \item If the sign of $f'$ changes at a critical point $x=c$, there is a relative extrema there. If $f'$ changes from positive to negative, then $f(c)$ is a relative maximum and if $f'$ changes from negative to positive, then $f(c)$ is a relative minimum. This is the first derivative test. 
+    \item At a critical point $x=c$, if $f''(c) \neq 0$, there is a relative extrema there. If $f''(c)<0$, then $f(c)$ is a relative maximum and if $f''(c)>0$, then $f(c)$ is a relative minimum. 
+    \item Absolute extrema are minimum and maximum values of functions over entire intervals. Simply put, if given a function over a definite interval, the absolute maximum is the largest value and the absolute minimum is the smallest value. 
+    \item The candidates test is used to determine absolute extrema. In short, you find the value of the function at the critical points and endpoints, and then pick out the smallest and largest values. 
+\end{itemize}
+
+\section{Exercises} \\
+\\
+\noindent 
+\textbf{6.1} Find all relative extrema for the function $f(x)=x^3-3x^2+2$. \\
+\\
+\noindent 
+\textbf{6.2} Find all relative extrema for the function $f(x)=-x^6+6x^4+2$. \\
+\\
+\noindent 
+\textbf{6.3}  Find all absolute extrema for the function $f(x)=2x^5+5x^4$ on the interval $[-1,1]$. \\
+\\
+\noindent 
+\textbf{6.4} Find all absolute extrema for the function $f(x)=x^3-3x^2+15$ on the interval $[-1,4]$.
+\end{document}

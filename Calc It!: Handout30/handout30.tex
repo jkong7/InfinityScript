@@ -1,0 +1,136 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{asymptote}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{dirtytalk}
+
+
+
+
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries}}
+\makeatother
+\title{\normalfont\notesize\textbf{Epsilon-Delta Definition of Limits}}
+\author{Jonathan Kong}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Precise definition of a limit}
+
+\noindent 
+Up to this point, we have been viewing limits in a very intuitive manner. We say that the limit of a function is what it \textit{approaches} at some point. However, to truly define this idea of closeness, we must use what is called the Epsilon-Delta definition of a limit. Epsilon and delta are the Greek symbols $\epsilon$ and $\delta$ respectively. \\
+\noindent\\
+Below is the definition:\\
+\noindent\\
+The limit of f(x) as x approaches $a$ is $L$
+$$\lim_{x \to a} f(x)=L$$
+\noindent
+if, for every $\epsilon>0$, there exists $\delta>0$ such that if
+$$0<\lvert x-a \rvert<\delta \;\;\;\Longrightarrow\;\;\; \lvert f(x)-L\rvert<\epsilon$$
+where the arrow represents \say{then}.\\
+\noindent\\
+Don't worry about the above for now as the next step should explain it. We will begin with a picture:
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Screenshot (5).png}
+    
+\end{figure}
+
+\newpage
+\noindent\\
+Suppose there are two people who play a game. The first person chooses a value $\epsilon>0$ away from $L$. The second person then must choose a value $\delta>0$ away from $a$ such that all the x-values in this interval correspond to a $f(x)$ value within $\epsilon$ of $L$. If person two is able to give a $\delta$ for any $\epsilon$ person one gives, no matter how small, then the limit is true. The limit is not true if a $\delta$ can not be given for every $\epsilon$. This can be visualized with the picture above. Any x-value chosen between the $\delta$ interval will correspond to a $f(x)$ value that is within $\epsilon$ of $L$. This definition also does not concern itself with what the value $f(a)$ is since a limit is what happens as x \textit{approaches} a, and not what happens at a.\\
+\noindent\\
+Keep in mind that this is used only to \textit{prove} limits and not solve them. That being said, any limit and limit property can be proved using epsilon-delta making it extremely powerful. 
+\section{Using Epsilon-Delta}
+\noindent
+We can now put the definition to use by proving various limits.\\
+\begin{tcolorbox}
+\textbf{Problem 2.1}\\
+Consider the function $f(x)=\frac{x^2-16}{x-4}$. Prove that $\lim_{x \to 4} f(x)=8$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.1:} First notice that we can deal with the function $f(x)=x+4$ since the two functions differ only at $x=4$ and the limit is not concerned with what happens at $x=4$. Now we must choose $\delta>0$ such that given $\epsilon>0$,
+$$0<\lvert x-a \rvert<\delta \;\;\;\Longrightarrow\;\;\; \lvert f(x)-L\rvert<\epsilon$$
+\noindent
+Plug in the respective values:
+$$0<\lvert x-4 \rvert<\delta \;\;\;\Longrightarrow\;\;\; \lvert (x+4)-8\rvert<\epsilon$$
+Simplify the right inequality:
+$$\lvert x-4 \rvert<\epsilon$$
+From here, we say that letting $\delta=\epsilon$ satisfies the definition and we are done with the proof. For any $\epsilon$ that is given, we can give a $\delta$ that is equal to that $\epsilon$. This equality shows that every $\epsilon$ has a corresponding $\delta$ that can be given thus this limit is true. \\
+\noindent\\
+Proofs using epsilon-delta usually require to simplify or manipulate the inequalities so that a relationship can be found with $\epsilon$ and $\delta$. The problem above is the simplest application of the definition. We will solve some complicated ones where the answer is not so clear-cut:\\
+\begin{tcolorbox}
+\textbf{Problem 2.2}\\
+Consider the function $f(x)=2x+7$. Prove that $\lim_{x \to 5}\; (2x+7)=17$ 
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.2:} Given $\epsilon>0$, we must choose $\delta>0$ such that 
+$$0<\lvert x-5 \rvert<\delta \;\;\;\Longrightarrow\;\;\; \lvert (2x+7)-17 \rvert<\epsilon$$
+The condition on the right side becomes 
+$$\lvert 2x-10 \rvert<\epsilon$$  $$2\lvert x-5 \rvert<\epsilon$$
+$$\vert x-5 \rvert<\frac{\epsilon}{2}$$
+thus we can choose $\delta=\frac{\epsilon}{2}$\\
+\begin{tcolorbox}
+\textbf{Problem 2.3}\\
+Consider the function $f(x)=\sqrt{2x+6}$. Prove that $\lim_{x \to 5} f(x)=4$
+\end{tcolorbox}
+\noindent
+\textit{Solution to 2.3:} Given $\epsilon>0$, we must choose $\delta>0$ such that 
+$$0<\lvert x-5 \rvert<\delta \;\;\;\Longrightarrow\;\;\; \lvert \sqrt{2x+6}-4 \rvert<\epsilon$$
+It seems that there is no quick way to simplify the right side so that we can form an equality between $\epsilon$ and $\delta$. However, whenever we see square roots, we should think to multiply by the conjugate. Doing this, we obtain:
+$$\left|\frac{(\sqrt{2x+6}-4)(\sqrt{2x+6}+4)}{\sqrt{2x+6}+4}\right|=\left|\frac{(2x+6)-16}{\sqrt{2x+6}+4}\right|=\frac{2\lvert x-5 \rvert}{\sqrt{2x+6}+4}$$
+Notice that we can factor 2 from the absolute value as well as take the absolute value out of the denominator since they are both always positive. From here, it appears that we are a bit stuck. Although we got rid of the square root in the numerator, it is still in the denominator. Our end goal is have our expression in terms of $\lvert x-5 \rvert$ so that we can equate $\epsilon$-$\delta$. Since $\sqrt{2x+6}\ge0$, we can form this inequality to get rid of the square root:
+$$\frac{2\lvert x-5 \rvert}{\sqrt{2x+6}+4}\le \frac{2\lvert x-5 \rvert}{4}=\frac{1}{2}\delta$$
+Aha! We have found the $\lvert x-5 \rvert$ that we were looking for and found $\delta$. We can now form this inequality:
+$$\lvert \sqrt{2x+6}-4 \rvert<\ \frac{1}{2}\delta$$
+to draw the conclusion of choosing $\delta$ such that $\delta=2\epsilon$\\
+\noindent\\
+The key part of the problem was understanding how taking away the square root in the denominator lead to the inequality with $\delta$. Many difficult Epsilon-Delta proofs require harder thinking such as in this problem to eventually equate $\epsilon$-$\delta$. \\
+\noindent\\
+The next problem is also going to require some new and unusual steps. It is completely fine if you are not able to solve it when you first look at it. However, really try to use all the options you can think of before looking at the solution. \\
+\begin{tcolorbox}
+\textbf{Problem 2.4}\\
+Consider the function $f(x)=x^2-3x+7$. Prove that $\lim_{x \to 2} f(x)=5$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.4:} Given $\epsilon>0$, we must choose $\delta>0$ such that 
+$$0<\lvert x-2 \rvert<\delta \;\;\;\Longrightarrow\;\;\; \lvert (x^2-3x+7)-5 \rvert<\epsilon$$
+Like any other problem, we proceed with the right side. We notice that we can factor the quadratic:
+$$\lvert x^2-3x+2 \rvert<\epsilon$$
+$$\lvert (x-2)(x-1) \rvert<\epsilon$$
+$$\lvert x-2 \rvert \: \lvert x-1 \rvert<\epsilon$$
+We see that we have our desired $\lvert x-2 \rvert$. However, we still have a $\lvert x-1 \rvert$ that we would like to get rid of before we can equate $\epsilon$-$\delta$. $\delta$ is a small number. For now, lets say that $\delta$ is equal to $1$. We could have chosen any number but $1$ is small and very easy to work with. We can now plug $1$ in for $\delta$ into our left inequality and do some algebra to obtain:
+$$\lvert x-2 \rvert<1$$
+$$-1<x-2<1$$
+$$0<x-1<2$$
+$$\lvert x-1 \rvert<2$$
+We can now form the inequality
+$$\lvert x-2 \rvert \: \lvert x-1 \rvert<2\delta$$
+to then choose $\delta$ such that $\delta=\frac{\epsilon}{2}$. But wait, getting this equality was from setting $\delta$ equal to $1$. Because of this, we must choose the minimum of the two values:
+$\delta=\min\{1,\frac{\epsilon}{2}\}$. Which value to choose depends on what $\epsilon$ is.\\
+\noindent\\
+Notice that any number could have been chosen for delta and a different epsilon bound would be chosen. The important thing to acknowledge is that the value of $\delta$ depends solely on what $\epsilon$ is given. 
+\newpage
+\section{Exercises}\\
+\noindent
+\textbf{3.1} Consider the function $f(x)=3x+5$. Prove that $\lim_{x \to 3}=14$\\
+\noindent\\ 
+\textbf{3.2} Prove that for any real number $a$, $\lim_{x \to a}=a$\\
+\noindent\\
+\textbf{3.3} Consider the function $f(x)=2x^2+x+3$. Prove that $\lim_{x \to 1} f(x)=6$\\
+\noindent\\
+\textbf{3.4} Consider the function $f(x)=x^3$. Prove that $\lim_{x \to 2} f(x)=8$\\
+
+\end{document}

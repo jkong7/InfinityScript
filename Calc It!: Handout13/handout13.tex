@@ -1,0 +1,112 @@
+\title{Local Linear Approximation}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Approximating the value of a function using a tangent line}
+\noindent 
+In this section, we will use tangent lines and derivatives to approximate the value of functions at certain points. \\
+\\
+\noindent 
+To start, take a look at the image below: 
+\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Screenshot (495).png}
+\end{figure}\\
+\\
+\noindent 
+We know that the tangent line to $f(x)$ at point $(a, f(a))$, which we will denote as $L(x)$, has a slope of $f'(a)$. Using the point-slope formula, we have that 
+$$L(x)=f(a)+f'(a)(x-a)$$
+The premise of local linear approximation is to plug in an $x$-value to the tangent line equation to approximate the actual value. However, note that in the image above, only for values of $x$ close to $a$ are the tangent line and the actual function close. This tells us that a local linear approximation is only accurate for nearby values of $x$, hence the name \say{local}. In the following problems, we construct local linear approximations as well as use them to approximate functions values. 
+\section{Local linear approximation problems}
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Construct the local linear approximation for $f(x)=x^4-5x^3+2x+2$ at $x=4$. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.1:} 
+We are asked to find the equation of the line tangent to $f$ at $x=4$. \\
+\\
+\noindent 
+We have that $f(4)=-54$. The slope of the tangent line is given by $f'(4)$: 
+$$f'(x)=4x^3-15x^2+2$$
+and so 
+\begin{align*}
+    f'(4) &=4(4)^3-15(4)^2+2 \\
+          &=18
+\end{align*}
+The local linear approximation is then
+$$L(x)=-54+18(x-4)$$
+\noindent 
+We will now use local linear approximation to approximate the value of a function.
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Using the local linear approximation for $f(x)=x^3$ at $x=2$, estimate the value of $1.98^3$. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.2:} We first note that $f(2)=8$. Solving for the slope of the tangent line, we get that 
+$$f'(x)=3x^2$$
+and so 
+$$f'(2)=12$$
+\noindent 
+Our local linear approximation is then 
+$$L(x)=8+12(x-2)$$
+The value $1.98^3$ is $f(1.98)$, which we can approximate as 
+\begin{align*}
+    f(1.98) \approx L(1.98) &=8+12(1.98-2) \\
+                            &=7.76
+\end{align*}
+\noindent 
+The actual value of $1.98^3$ is 7.7624, so our estimate is extremely close. If we were to estimate a value that was further away from $x=2$, our estimation would likely be less accurate as the tangent line would deviate further and further away from the actual function. \section{Recap points}
+\begin{itemize}
+    \item The tangent line to a point $x=a$ on a function $f$ can be used to approximate values of $f$ near $a$. This is known as local linear approximation. 
+    \item The tangent line, denoted $L(x)$, has the following equation: 
+    $$L(x)=f(a)+f'(a)(x-a)$$
+    \item Local linear approximations are more accurate for closer values of $x$ relative to $a$. 
+\end{itemize}
+\section{Exercises}\\
+\noindent 
+\textbf{4.1} Construct the local linear approximation for $f(x)=3x^2-3x+1$ at $x=1$.\\
+\\
+\noindent 
+\textbf{4.2} Using the local linear approximation for $f(x)=\sqrt x$ at $x=4$, estimate $\sqrt {4.1}$. \\
+\\
+\noindent 
+\textbf{4.3} Using the local linear approximation for $f(x)=x\sin(\pi x^2)$ at $x=2$, estimate the value of $f(2.05)$. 
+
+
+
+
+
+
+
+
+
+\end{document}

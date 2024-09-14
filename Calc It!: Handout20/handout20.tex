@@ -1,0 +1,136 @@
+\title{Integration by Parts}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Reversing the product rule}
+\noindent
+In this section, we will use integration by parts, an integration method that allows for integrating products of functions that are not of the same type, such as algebraic, exponential, and logarithmic. We will start by deriving the formula given by integration by parts: \\
+\\
+\noindent 
+Recall the product rule, which gives that if $u$ and $v$ are functions, then
+$$(uv)'=uv'+u'v$$
+We will now reverse this to yield the formula given by integration by parts. We first isolate $uv'$:
+$$uv'=(uv)'-u'v$$
+We take the anti derivative of both sides with respect to $x$:
+$$\int uv'\, dx={\int[(uv)'-u'v] \, dx}$$
+After simplification, this becomes 
+$$\int uv' \, dx={uv-\int u'v \, dx}$$
+\\
+\noindent 
+We can simplify the equation by nothing that $$v'dx=\frac{dv}{dx}dx=dv$$ and $$u'dx=\frac{du}{dx}dx=du$$
+This simplifies to give us the integration by parts formula:
+$$\int u \, dv=uv-\int v \, du$$ 
+\section{How to use integration by parts}
+\noindent
+We choose integration by parts when we are integrating the product of two different function types. For example, let's examine the integral $$\int x \, \cos x \, dx$$
+We cannot use $u$-sub to evaluate this integral as no derivative of one portion will result in the other. Therefore, we use integration by parts.\\
+\\
+\noindent To continue, we must choose one term to be $u$ and the other to be $dv$. We will be differentiating $u$ and integrating $dv$. Here, we set $u=x \Rightarrow du=dx$ and $dv=\cos x \ dx \Rightarrow v= \sin x$. Integration by parts yields: 
+\begin{align*}
+    \int{x\cos x \ dx} &=x \sin x - \int{\sin x \ dx} \\
+                       &= x \sin x + \cos x + C
+\end{align*}
+A good general rule of thumb in choosing $u$ and $dv$ is by the acronym LIATE: 
+\begin{center}
+    \textbf{L}ogarithmic functions \\
+    \textbf{I}nverse trigonometric functions \\
+    \textbf{A}lgebraic functions \\
+    \textbf{T}rigonometric functions \\
+    \textbf{E}xponential functions
+\end{center}
+We choose $u$ from top to bottom and $dv$ from bottom to top.
+\section{Integration by parts problems}
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Evaluate $\int{x^3 \ln x \ dx}$
+\end{tcolorbox}
+\noindent
+\textit{Solution to problem 3.1:} When our integral contains a logarithmic function, we almost always set that to be $u$. This is because logarithmic functions are easy to differentiate and almost always simplify the integral once the first integration by parts step is through. Here, we set $u= \ln x \Rightarrow du=\frac{1}{x} \ dx$ and $dv= x^3 \ dx \Rightarrow v=\frac{x^4}{4}$. Integration by parts yields:
+\begin{align*}
+    \int{x^3 \ln x \dx} &= \frac{x^4}{4}\ln x - \int{\frac{x^4}{4}\cdot \frac{1}{x} \ dx} \\
+                        &= \frac{x^4}{4}\ln x -\frac{1}{4}\int{x^3 \ dx} \\
+                        &= \frac{x^4}{4}\ln x -\frac{x^4}{16}+C
+\end{align*}
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.2} Evaluate $\int{x e^{8x} \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 3.2:} The LIATE acronym tells us that we should set exponential functions as $dv$. Therefore, we have $u=x \Rightarrow du=dx$ and $dv=e^{8x} \ dx \Rightarrow v=\frac{1}{8}{e^{8x}}$. Integration by parts yields:
+\begin{align*}
+    \int{xe^{8x} \ dx} &=\frac{x}{8}e^{8x}-\int{\frac{1}{8}e^{8x}dx} \\
+    &=\frac{x}{8}e^{8x}-\frac{1}{64}e^{8x}+C
+\end{align*}
+\noindent 
+The next problem is a little more challenging. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.3} Evaluate $\int{x^2e^{3x} \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 3.3:} We set $u=x^2 \Rightarrow du=2x \ dx$ and $dv=e^{3x} \ dx \Rightarrow v=\frac{1}{3}e^{3x}$. Integration by parts yields:
+\begin{align*}
+    \int{x^2e^{3x}} &= \frac{x^2}{3}e^{3x}-\int{\frac{1}{3}e^{3x} \ dx} \\
+                   &=\frac{x^2}{3}e^{3x}-\frac{2}{3}\int{xe^{3x} \ dx}
+\end{align*}
+We can not directly evaluate this second integral and it does not look like something we can use $u$-sub on. It does, however, look like something we can use integration by parts on again. We set $u=x \Rightarrow du=dx$ and $dv=e^{3x} \Rightarrow v=\frac{1}{3}e^{3x}$. Integration by parts yields:
+\begin{align*}
+    \int{x^2e^{3x}} &=\frac{x^2}{3}e^{3x}-\frac{2}{3}\left(\frac{x}{3}e^{3x}-\int{\frac{1}{3}e^{3x} \ dx}\right) \\
+    &=\frac{x^2}{3}e^{3x}-\frac{2}{3}\left(\frac{x}{3}e^{3x}-\frac{1}{9}e^{3x}\right)+C \\
+    &=\frac{x^2}{3}e^{3x}-\frac{2x}{9}e^{3x}-\frac{2}{27}e^{3x}+C
+\end{align*}
+\noindent 
+When using integration by parts, the first step is often not enough to fully evaluate the integral. Often, many uses is necessary and when continuously using integration by parts does not lead to anything, algebraic manipulation can also be used. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.4} Evaluate $\int{\ln x \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 3.4:} At first glance, there does not seem to be a product in this integral, and therefore does not seem solvable by integration by parts. However, note that there is a product between $\ln x$ and $dx$; we canuse this to continue. The only possible candidate for $u$ is $\ln x$ and so $dv$ must be $dx$. We therefore have $u=\ln x \Rightarrow du=\frac{1}{x}dx$ and $dv=dx \Rightarrow v=x$. Integration by parts yields:
+\begin{align*}
+    \int{\ln x \ dx} &=x \ln x-\int{x\frac{1}{x}dx} \\
+                     &=x \ln x-\int{dx} \\
+                     &=x \ln x-x+C
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item The integration by parts formula is derived from reversing the product rule for derivatives. The formula is as follows: 
+    $$\int u \, dv=uv-\int v \, du$$ 
+    \item Often, a challenging part of using integration by parts is identifying which portion of the integral to set as $u$ and which to set as $dv$. The acronym LIATE is generally a good rule of thumb to follow where $u$ is chosen from top to bottom and $dv$ from bottom to top. 
+    \item Some integrals cannot be evaluated after using integration by parts just once. 
+\end{itemize}
+\section{Exercises}\\
+\noindent 
+\textbf{5.1} Evaluate $\int{\frac{\ln x}{x^4} \ dx}$ \\
+\\
+\noindent 
+\textbf{5.2} Evaluate $\int{x^2} \cos {(2x)} \ dx$ \\
+\\
+\noindent 
+\textbf{5.3} Evaluate $\int{\sin^2 x} \ dx$ \\
+\\
+\noindent 
+\textbf{5.4} Evaluate $\int {e^x \cos x} \ dx$
+\end{document}

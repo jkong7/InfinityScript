@@ -1,0 +1,137 @@
+\title{Rolle's Theorem and the Mean value Theorem}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Rolle's theorem}
+\noindent 
+In this section, we will explore Rolle's theorem and the mean value theorem, two very important theorems in Calculus that provide the backbone to many further results. \\
+\\
+\noindent 
+Rolle's theorem is a special case of the mean value theorem. Since it is a little easier to conceptualize, we will start with it first: \\
+\\
+\noindent 
+Rolle's theorem states: \\
+\\
+\noindent 
+Let $f$ be a function continuous on $[a,b]$ and differentiable on $(a,b)$. If $f(a)=f(b)$, there exists at least one point $c$ with $a<c<b$ such that $f'(c) = 0$.\\
+\\
+\noindent 
+This is easy to visualize. A continuous curve that starts and ends at the same $y$-value must \say{flatten out} at some point. The point at which this occurs is where the derivative is equal to zero since the slope at this point is equal to zero. The image below is an illustration of Rolle's theorem: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{Screenshot (584).png}
+\end{figure} \\
+\noindent 
+We will now take a look at a problem concerning Rolle's theorem. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Determine whether the function $f(x)=x^2-4x+3$ on the interval $[1,3]$ satisfies the conditions of Rolle's theorem. If it does, find all possible values $x=c$ in $(1,3) $ such that $f'(c)=0$.
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 1.1:} Rolle's theorem has three conditions we need to verify: \\
+\\
+\noindent 
+1. Because $f(x)$ is a polynomial function, it has no breaks in continuity on $[1,3]$. \\
+\\
+\noindent 
+2. Likewise, $f(x)$ is differentiable on $(1,3)$ due to it being a polynomial function. \\
+\\
+\noindent 
+3. $f(1)=f(3)=0$\\
+\\
+\noindent 
+Therefore, our function satisfies the conditions of Rolle's theorem. We find $c$ by taking the derivative of $f$ and setting it equal to zero: 
+$$f'(x)=2x-4$$
+$$f'(c)=2c-4=0$$
+$$c=2$$
+\section{Mean value theorem}
+\noindent
+We will now take a look at the mean value theorem, which can be thought of as a more general form of Rolle's theorem. It states:\\
+\\
+\noindent 
+Let $f$ be continuous on interval $[a,b]$ and differentiable on $(a,b)$. Then, there exists at least one point $c$ with $a<c<b$ such that 
+$$f'(c) = \frac{f(b)-f(a)}{b-a}$$
+\noindent 
+Geometrically, the mean value theorem states that there is at least one point where the tangent line to a curve is parallel to the secant line joining the endpoints of the curve.
+The image below is an illustration of the mean value theorem:  
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=6.5cm, height=4.21cm]{SS4-19-22.png}
+\end{figure}\\
+\noindent
+We will now take a look at a few problems and applications concerning the mean value theorem. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Determine whether the function $f(x)=4+\sqrt{x}$ on the interval $[0,4]$ satisfies the conditions of the mean value theorem. If it does, find all possible values $x=c$ in $(0,4)$ that satisfies the conclusion of the mean value theorem.  
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.1:} Because the function is a sum of two continuous functions, it is continuous on $[0,4]$ and differentiable on $(0,4)$. Therefore, the function satisfies the conditions of the mean value theorem. The conclusion of the mean value theorem allows us to solve for all possible $c$:  
+$$f'(c)=\frac{f(4)-f(0)}{4-0}$$
+$$\frac{1}{2\sqrt{c}}=\frac{(4+\sqrt{4})-(4+\sqrt{0})}{4-0}$$
+$$\frac{1}{2\sqrt{c}}=\frac{1}{2}$$
+$$c=1$$ 
+\noindent 
+In the next problem, we use the mean value theorem to prove an important result. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Prove, using the mean value theorem, that if $f'(x)=0$ for all $x$ in $(a,b)$, then $f$ is constant on $[a,b]$. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.2:} Let $x_1$ and $x_2$ be two points on $[a,b]$ such that $x_1<x_2$. By the mean value theorem, there exists some $c$ in $(x_1, x_2)$ such that 
+$$f'(c)=\frac{f(x_2)-f(x_1)}{x_2-x_1}$$
+\noindent 
+However, we also know that $f'(c)=0$, and so 
+$$0=\frac{f(x_2)-f(x_1)}{x_2-x_1}$$
+$$f(x_2)=f(x_1)$$
+\noindent 
+Therefore, $f$ is constant on $[a,b]$. \\
+\\
+\noindent 
+In the next section, we will use continue to use the mean value theorem to prove important calculus results such as this one. 
+\section{Recap points}
+\begin{itemize}
+    \item Geometrically, Rolle's theorem states that if a continuous curve starts and ends at the same $y$-value, there must be some point in that interval where the curve \say{flattens out} and has a derivative equal to zero. 
+    \item Geometrically, the mean value theorem states that there is at least one point where the tangent line to a curve is parallel to the secant line joining the endpoints of the curve. 
+    \item Both theorems should be quite easy to visualize and logically comprehend. Don't try to memorize them as much as try to geometrically understand them. 
+    \item The mean value theorem is used to prove many important calculus results. 
+\end{itemize}
+\section{Exercises}\\
+\noindent 
+\textbf{4.1} Determine whether the function $f(x)=x^2-8x+15$ on the interval $[3,5]$ satisfies the conditions of Rolle's theorem. If it does, find all possible values $x=c$ in $(3,5)$ such that $f'(c)=0$. \\
+\\
+\noindent 
+\textbf{4.2} Determine whether the function $f(x)=\frac{x}{1+x}$ on the interval $[1,3]$ satisfies the conditions of the Mean Value theorem. If it does, find all possible values $x=c$ in $(1,3)$ that satisfies the conclusion of the Mean Value theorem. \\
+\\
+\noindent 
+\textbf{4.3}  Let $f$ be a function that is continuous on $[2,7]$ and differentiable on $(2,7)$. Suppose that $f(2)=3$ and $f'(x) \leq 12$. What is the largest possible value for $f(7)$? 
+
+
+
+\end{document}

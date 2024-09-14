@@ -1,0 +1,208 @@
+\title{Volumes by Cross Section}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Definite integrals and cross sections}
+\noindent
+In this section, we will find the volume of solids using cross sections. Just like with finding area between curves, we will be utilizing definite integrals.\\
+\\
+\noindent 
+To start, take a look at the image below: 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Screenshot (517).png}
+\end{figure} \\
+\noindent 
+As seen, the cross sections of the solid $S$ are different in area. We can represent the area of the cross sections as a function of $x$: $A(x)$. If each cross section strip was infinitesimally small and we \say{added} all strips from one end $a$ to another end $b$, the result would be the volume of the solid. \\
+\\
+\noindent The \say{adding} of the strips can be represented with a definite integral. The proper result is as follows: \\
+\\
+\noindent 
+The volume of a solid $S$, bounded by parallel planes perpendicular to the $x$-axis at $x=a$ and $x=b$, with a cross-sectional area perpendicular to the $x$-axis as $A(x)$ for all $x$ in $[a,b]$, has a volume of 
+$$\int_a^b {A(x) \ dx}$$
+\noindent 
+You can visualize this concept as the area under a curve turned 3D. Instead of adding infinitesimally thin rectangular strips, we are adding infinitesimally thin cross sections. \\
+\\
+\noindent 
+In volume by cross-section problems, you will usually not directly be given the function for the cross-sectional area. Instead, you will be given the following two pieces of information which you then can use to find the function: \\
+\\
+\noindent 
+1. The function(s) that define and bound the base of the solid \\
+\\
+\noindent 
+2. The shape of the cross sections (the cross sections will always be perpendicular to the plane of the base)\\
+\\
+\noindent 
+The most important thing is being able to visualize the solid.\\
+\\
+\noindent For example, let's visualize the following statement: The base of a solid is the region bounded between $y=\sqrt{x}$, the $x$-axis, and $x=3$ and its cross sections perpendicular to the $x$-axis are semicircles. \\
+\\
+\noindent 
+The following is the base of the solid: 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8.25cm]{Screenshot (519).png}
+\end{figure}
+\noindent 
+The following illustrates the cross sections:
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8.25cm]{Screenshot (518).png}
+\end{figure}\\
+\noindent 
+The function that defines the base is used to determine a function for the cross sectional area. For example, in the image above, $y=\sqrt{x}$ is the length of the diameter of the semi-circle. This relationship can then be used to find $A(x)$, the function for the area of the semi-circles. 
+\section{Volume by cross sections problems}
+\noindent 
+For any volume by cross sections problem, it is important that you can visualize both the base of the solid as well as the cross-sections. Like with area between curves problems, a good first step is to sketch the base. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Find the volume of the solid whose base is the region bounded by the $x$-axis, $y$-axis, and the line $y=4-x$, and whose cross-sections perpendicular to the $x$-axis are semicircles. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.1:} We begin with a sketch of the base: 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Screenshot (522).png}
+\end{figure}\\
+\noindent 
+The area for a semicircle is $\frac{1}{2}\pi R^2$. The diameter of the semicircle rests between the $x$-axis and $y=4-x$ so it can be represented by $4-x$. We can then derive an area function for the cross sections: 
+\begin{align*}
+    A(x) &= \frac{1}{2} \pi R^2 \\
+         &= \frac{1}{2} \pi \frac{(4-x)^2}{2^2} \\
+         &= \frac{16-8x+x^2}{8}
+\end{align*}
+\noindent 
+The limits of integration are 0 and 4. With this, we have all the information needed to set up and solve an integral expression:
+\begin{align*}
+    \text{Volume} &=\int_a^b {A(x) \ dx} \\
+                  &=\int_0^4 {\frac{16-8x+x^2}{8}} \ dx \\
+                  &=\left[8x^2-4x^2+\frac{x^3}{3}\right]_0^4 \\
+                  &= \frac{8}{3}
+\end{align*}
+\noindent 
+The next solid contains right isosceles triangle cross sections. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Find the volume of the solid whose base is the region bounded by the circle $x^2+y^2=4$ and whose cross sections perpendicular to the $x$-axis are right isosceles triangles with a leg on the base of the solid. 
+\end{tcolorbox}
+\noindent
+\textit{Solution to problem 2.2:} We begin with a sketch of the base: 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Screenshot (523).png}
+\end{figure}
+\newpage
+\noindent 
+Next, because our cross sections are perpendicular to the $x$-axis, we must have our function as $y$ in terms of $x$: 
+$$y=\sqrt{4-x^2}$$
+\noindent 
+The distance between the curve and the $x$-axis is $\sqrt{4-x^2}$. Since the leg of our triangle is bounded between the curve, it has twice that length. We then have that 
+\begin{align*}
+    A(x) &=\frac{1}{2}bh \\
+         &=\frac{1}{2}(2\sqrt{4-x^2})^2 \\
+         &=8-2x^2
+\end{align*}
+\noindent 
+The limits of integration are -2 and 2. The volume integration is then as follows: 
+\begin{align*}
+    \text{Volume} &=\int_a^b {A(x) \ dx} \\
+                  &=\int_{-2}^2 {(8-2x^2)} \ dx \\
+                  &=\left[ {8x-\frac{2}{3}x^3}\right]_{-2}^2 \\
+                  &=\frac{64}{3}
+\end{align*}
+\noindent 
+As seen, once you can visualize the base and cross sections of the solid, putting everything else together comes quite easily.
+\section{Integrating with respect to $y$}
+\noindent 
+We can also solve volume by cross section problems by integrating with respect to $y$. The proper result is as follows: \\
+\\
+\noindent 
+The volume of a solid $S$, bounded by parallel planes perpendicular to the $y$-axis at $y=c$ and $y=d$, with a cross-sectional area perpendicular to the $y$-axis as $A(y)$ for all $y$ in $[c,d]$, has a volume of
+$$\int_c^d{A(y)} \ dy$$
+\noindent 
+Here, the cross sections are perpendicular to the $y$-axis instead of the $x$-axis. You can think of them as horizontally placed instead of vertically placed. This concept is the exact same to when we integrated with respect to $y$ for area between curves. \\
+\\
+\noindent 
+The process should still be the same: sketch the base and visualize the cross sections. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black] 
+\textbf{Problem 3.1} Find the volume of the solid whose base is the region bounded between the curves $x=y^2-5y$ and $x=-4$, and whose cross sections perpendicular to the $y$-axis are squares. 
+\end{tcolorbox}
+\noindent
+\textit{Solution to problem 3.1:} We begin with a sketch of the region: 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Screenshot (525).png}
+\end{figure}\\
+\noindent 
+Because the square cross sections are perpendicular to the $y$-axis, the side of the square is the horizontal distance between the two curves. This distance is $-4-(y^2-5y)$. We then have that 
+\begin{align*}
+    A(x) &=(\text{side})^2 \\
+         &=(-4-y^2+5y)^2 \\
+         &=y^4-10y^3+33y^2-40y+16
+\end{align*}
+\noindent 
+Next, for limits of integration, we set the two functions equal and solve for $y$: 
+$$y^2-5y=-4$$
+$$(y-1)(y-4)=0$$
+$$y=1,4$$
+\noindent 
+Our volume integration is as follows: 
+\begin{align*}
+    \text{Volume} &= \int_c^d {A(y) \ dy} \\
+                  &= \int_1^4 {(y^4-10y^3+33y^2-40y+16)} \ dy \\
+                  &=\left[\frac{y^5}{5}-\frac{5}{2}y^4+11y^3-20y^2+16y\right]_1^4 \\
+                  &=\frac{81}{10}
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item The volume of a solid can be found by integrating the function that gives the area of its cross sections. You can visualize this as taking the area under a curve but in 3D.
+    \item When finding the volume of a solid in an interval $[a,b]$ by integrating with respect to $x$, we use the following expression: 
+    $$\int_a^b A(x) \ dx$$
+    \noindent 
+    where $A(x)$ represents the area of the cross sections as a function of $x$. 
+    \item When finding the volume of a solid in a vertical interval $[c,d]$ by integrating with respect to $y$, we use the following expression: 
+    $$\int_c^d A(y) \ dy$$
+    \noindent 
+    where $A(y)$ represents the area of the cross sections as a function of $y$. 
+    \item Begin all volume by cross sections problems with a sketch of the solid's base. 
+    \item It is very important to visualize both the base and the cross sections; setting up the integral expression should follow easily. 
+\end{itemize}
+\section{Exercises}\\
+\noindent 
+\textbf{5.1} Find the volume of the solid whose base is the region bounded by the circle $x^2+y^2=4$ and whose cross sections perpendicular to the $x$-axis are squares.\\
+\\
+\noindent 
+\textbf{5.2} Find the volume of the solid whose base is the region bounded by the circle $x^2+y^2=4$ and whose cross sections perpendicular to the $x$-axis are equilateral triangles.\\
+\\
+\noindent 
+\textbf{5.3} Find the volume of the solid whose base is the region bounded between the curves $y=x$ and $y=x^2$, and whose cross sections perpendicular to the $x$-axis are semicircles. 
+\end{document}

@@ -1,0 +1,140 @@
+\title{Related Rates}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{The derivative as a rate of change}
+\noindent
+In this section, we will look at related rates problems, which are direct applications of implicit differentiation. \\
+\\
+\noindent 
+\textbf{Related rates} are quantities that are dependent on each other and also changing with time.\\
+\noindent\\
+Recall that we define the derivative of a function $f(x)$ at a point on its graph as the slope of the tangent line to the graph at that point. However, the derivative can be interpreted another way. \\
+\\
+\noindent 
+A function's average rate of change is given by the change in $y$ over change in $x$ between two instances. Graphically, this is described by a secant line between two points. \\
+\\
+\noindent 
+The \textbf{instantaneous} rate of change describes the rate of change at one instance. Graphically, this is described by the tangent line to a particular point. The derivative, which we know to be the slope of this tangent line, therefore describes the instantaneous rate of change. \\
+\\
+\noindent 
+In the related rates problems we will look at in this section, derivatives will be used to represent rate of change. For example, if $V$ represents a volume function, $\frac{dV}{dt}$ represents the rate of change of the volume with respect to time. \\
+\\
+\noindent 
+To illustrate the steps for solving related rates problems, we will break down an example:\\
+\noindent\\
+A $13$ feet ladder leans against a wall when its base starts to slide away from the wall. When the base is $12$ feet away from the wall, it is moving at a rate of $5$ ft/sec. At what rate is the top of the ladder sliding down the wall?\\
+\noindent\\
+All related rates problems follow an established method of solving. The first thing we do is establish our knowns and unknowns. The ladder leaning against the wall creates a right triangle with the ladder being the hypotenuse. We let $x$ and $y$ be the horizontal and vertical lengths, respectively. We know that $x=12$ since the base is the horizontal length and we also know that $\frac{dx}{dt}=5$ since this is the rate at which the base moves with respect to time. The problem asks for $\frac{dy}{dt}$, which is the rate at which the vertical length moves down the wall.\\
+\noindent\\
+After establishing this, we move on to a relationship that we can use to tie in our quantities. In this case, because we have a right triangle, we use the Pythagorean theorem. Since the ladder is 13 feet, we have that $x^2+y^2=169$. Plugging in $x=12$ to this equation yields $y=5$ \\
+\\
+\noindent
+Our next step in this problem and in any related rates problem is to differentiate the equation. This will yield derivatives and let us find our unknown: 
+$$\frac{d}{dt}(x^2+y^2)=\frac{d}{dt}(169)$$
+$$\frac{d}{dt}(x^2)+\frac{d}{dt}(y^2)=0$$
+Every variable is a function of time and so we can think of $x$ and $y$ as $x(t)$ and $y(t)$. By the chain rule, $(x(t))^2=2x(t)x'(t)$ or $2x\frac{dx}{dt}$. We do the same with $y$:
+$$2x\frac{dx}{dt}+2y\frac{dy}{dt}=0$$
+Great! We now have our rates and values in one relationship. We plug in what we know for $x$, $y$, and $\frac{dx}{dt}$ to solve for $\frac{dy}{dt}$:
+$$2(12)(5)+2(5)\frac{dy}{dt}=0$$
+$$\frac{dy}{dt}=-12\; \text{ft/sec}$$
+Therefore, the top of the ladder slides down the wall at a rate of 12 ft/sec. The negative sign simply indicates that the ladder is sliding down the wall. 
+\section{Related rates problems}
+\noindent 
+Make note of the following equations when solving the following problems: 
+\begin{itemize}
+    \item Volume of a sphere $=\frac{4}{3}\pi r^2$
+    \item Volume of a cylinder $=\pi r^2 h$
+\end{itemize}
+\noindent 
+$r$ refers to radius and $h$ refers to height. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} A spherical balloon is being inflated at a rate of 6 ${\text{cm}^3/\text{sec}}$. At what rate is its radius increasing when its radius is 3 cm?
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.1:} We begin by writing our knowns and unknowns. Letting $V$ and $r$ represent the volume and radius of the balloon, respectively, we have that $\frac{dV}{dt}=6$ and $r=3$. We want to find $\frac{dr}{dt}$, the rate of change of the radius. \\
+\\
+\noindent 
+Next, we need an equation that relates all our values. Since volume and radius is included, the equation that we will use is that of the volume of a sphere: 
+$$V=\frac{4}{3}\pi r^3$$
+We differentiate the equation by using the chain rule and taking out the constant $\frac{4}{3}\pi$:
+$$(V)'=\left(\frac{4}{3}\pi r^3\right)'$$
+$$\frac{dV}{dt}=\left(\frac{4}{3}\pi\right)(r^3)'$$
+We treat $r$ as $r(t)$. Using the chain rule, $(r(t)^3)'=3r(t)^2r'(t)$ $\Rightarrow$ \;$3r^2\frac{dr}{dt}$
+$$\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}$$
+We now plug in our known values and solve for our unknown:
+$$6=4\pi (3)^2\frac{dr}{dt}$$
+$$\frac{dr}{dt}=\frac{1}{6\pi} \; \text{cm/sec}$$
+\noindent 
+Therefore, the radius is increasing at a rate of $\frac{1}{6\pi} \; \text{cm/sec}$. 
+\noindent\\
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} A water tank the shape of a cylinder is being filled with water at a rate of 
+ 4 $\text{cm}^3/\text{sec}$. If the radius of the tank is 5 cm, at what rate is the height of the water increasing?
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.2:} Letting $V$ and $r$ represent the volume and radius of the balloon, respectively, we have that $\frac{dv}{dt}=4$ and $r=5$. We want to find $\frac{dh}{dt}$, the rate of change of the height. \\
+\\
+\noindent 
+To relate the quantities of volume, radius, and height, we use the volume of a cylinder equation:
+$$V=\pi r^2 h$$
+Differentiating the equation:
+$$(V)'=(\pi r^2 h)'$$
+$$\frac{dV}{dt}=\pi(r^2h)'$$
+We use the product rule and chain rule to expand:
+$$\frac{dV}{dt}=\pi[(r^2)'(h)+(r^2)(h)']$$
+$$\frac{dV}{dt}=\pi(2rh\frac{dr}{dt}+r^2\frac{dh}{dt})$$
+\noindent 
+Both $h$ and $\frac{dr}{dt}$ are unknowns along with the desired $\frac{dh}{dt}$. Therefore, because we only have one equation, it may appear that we are stuck. \\
+\\
+\noindent 
+However, note that because the shape we are dealing with is a cylinder, its radius is always constant despite an increasing volume. Therefore, $\frac{dr}{dt}=0$. Our equation becomes  
+$$\frac{dV}{dt}=\pi(r^2\frac{dh}{dt})$$
+We now plug in our values and solve for our unknown:
+$$4=\pi(5^2\cdot\frac{dh}{dt})$$
+$$\frac{dh}{dt}=\frac{4}{25\pi} \; \text{cm/sec}$$
+\noindent 
+Therefore, the height of the water is increasing at a rate of $\frac{4}{25\pi} \; \text{cm/sec}$. 
+\section{Recap points}
+\begin{itemize}
+    \item Related rates are quantities that are dependent on each other and also changing with time. 
+    \item We use derivatives to represent rate of change. If $V$ represents a volume function, $\frac{dV}{dt}$ represents the rate of change of the volume with respect to time. 
+    \item Start all related rates problems by listing known and unknown values. Then, determine an equation that ties in all those values. After implicitly differentiating this equation, plug in all known values and solve for the unknown value (often a rate). 
+\end{itemize}
+\section{Exercises}\\
+\noindent
+\textbf{4.1} A circular pizza is being eaten away at a rate of 0.8 $\text{cm}^2/\text{sec}$. At what rate is the radius decreasing when the area of the pizza is 10 $\text{cm}^2$? \\
+\noindent\\
+\textbf{4.2} A cylindrical water tank with radius 1 meter has water drained at a rate of 5 $\text{m}^3/\text{sec}$. At what rate is the height of the water in the tank decreasing? \\
+\noindent\\
+\textbf{4.3} The volume of a cube increases at a rate of 2 $\text{cm}^3/\text{sec}$. At what rate does the surface area of the cube increase when the side of the cube is 8 inches?
+\end{document}

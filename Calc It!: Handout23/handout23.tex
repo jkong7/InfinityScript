@@ -1,0 +1,115 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{asymptote}
+\usepackage{tikz}
+\title{Accumulation}
+\author{Jonathan Kong}
+\date{}
+
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Integrating rates}
+\noindent
+In this section, we will look at accumulation problems, which deal with using definite integrals and rate of change functions to find an amount. \\
+\\
+\noindent 
+When given a function that represents an amount, we can differentiate it to get a function that represents the rate of change of that amount. We have used this idea many times before, such as when dealing with related rates problems. With integrals, we reverse this process. We begin with a rate of change function and then get an amount by integrating that function. The two concepts are summarized as follows: 
+$$\frac{d(\text{amount})}{dt}=\text{rate of change}$$
+$$\int{\text{rate of change}}=\text{amount}$$
+\noindent 
+With derivatives, we can find the rate of change at some instance $a$ by plugging that value into the derivative function. Likewise, we can find the amount accumulated by a rate of change function between two times $a$ and $b$ by using a definite integral with limits of integration $a$ and $b$. The two concepts are summarized as follows: 
+$$\frac{d(\text{amount})}{dt}\Bigr|_{\substack{t=a}}=\text{rate of change at} \ t=a$$
+$$\int_{t=a}^{t=b}{\text{rate of change}}=\text{amount accumulated from} \ t=a \ \text{to} \ t=b$$
+\noindent 
+The definite integral shown above is what we will use to solve accumulation problems. Whenever we are given a rate of change function as well as a time period, we know that we can find an amount accumulated within that time period. 
+\section{Accumulation problems}
+\noindent 
+For the following problems and exercises, it may be necessary to use a graphing calculator or some other tool that allows for computing definite integrals. Round all answers to three decimal places. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} The rate, in tons per hour, at which garbage fills up a landfill site can be modeled by $R(t)=200e^{-t/10}$, where $t$ is measured in hours since noon. The site starts collecting trash at noon and stops at 8 P.M. Find the total amount of trash, in gallons, that come into the site during this period. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.1:} We are given a rate function as well as a time period. The start time, noon, is $t=0$ and the end time, 8 P.M, is $t=8$. Integrating the rate function with the limits of integration set as the start and end of the time period will yield the accumulated amount:
+\begin{align*}
+    \text{Total amount of trash} &=\int_0^8{200e^{-t/10} \ dt} \\
+    &=-2000(e^{-t/10})\biggr \rvert_0^8 \\
+    &=1101.342
+\end{align*}
+\noindent 
+This is a fairly base-level accumulation problem. As soon as you identify a rate function as well as a time period, your first instinct should be to write down a definite integral that yields an amount. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} At 1 P.M, there are 300 gallons inside of a large water tank. From 1 P.M to 9 P.M, water drains from the tank at a rate, in gallons per hour, of $P(t)$, where $t$ is measured in hours since 1 P.M. Write, but do not evaluate, an equation to find the time $a$ for when the tank contains 180 gallons of water. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.2:} The amount of water that leaves the tank from 1 P.M to time $a$ can be written using the following definite integral: 
+$$\int_0^a{P(t) \ dt}$$
+\noindent 
+Note that this amount must be subtracted from our initial value to yield the amount at time $a$ since water is being taken away from the tank. Our set up is then as follows: 
+$$(\text{initial amount})-(\text{drained amount})=(\text{final amount})$$
+$$300-\int_0^a{P(t) \ dt}=180$$
+$$\int_0^a P(t) \ dt=120$$
+\noindent 
+Accumulation problems such as this one often play around with which variables are given and which are unknown. To stay organized, the first step should always be to write down all amount-integrals and then see where they fit in with the rest of the problem. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.3} Starting at noon, water is pumped inside of an empty pool at a rate, in gallons per hour, of $P(t)$. However, inside the pool, there is a large crack that drains water from the pool at a rate, in gallons per hour, of $D(t)$. $t$ is measured in hours since noon. Also, due to evaporation, water leaves the pool at a constant rate of 0.5 gallons per hour. Write, but do solve, an equation to find the time $a$ for when the pool contains 15,000 gallons of water.
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.3:} Here, we have three separate accumulation expressions to write. The amount of water that goes into the tank from noon to time $a$ can be written using the following definite integral: 
+$$\int_0^a{P(t) \ dt}$$
+\noindent 
+The amount of water that leaves the tank due to the crack from noon to time $a$ can be written using the following definite integral: 
+$$\int_0^a{D(t) \ dt}$$
+\noindent 
+The amount of water that leaves the tank due to evaporation can be written without an integral as the rate is constant and given. The amount is: 
+$$0.5t$$
+\noindent 
+Putting it all together, our set up is then as follows: 
+$$(\text{amount that goes in})-(\text{amount that goes out})=(\text{final amount})$$
+$$\int_0^a{P(t) \ dt}-\int_0^a{D(t) \ dt}-0.5t=15,000$$
+\noindent 
+The problem statement may of seemed a bit convoluted. But by taking the time to identify each rate and subsequent integral within the statement, putting everything together should not be not too difficult. 
+
+\section{Recap points}
+\begin{itemize}
+    \item When given a rate function and a time period, the amount outputted by that rate function can be found using a definite integral. 
+    \item The rate-amount relationship is as follows:  $$\int_{t=a}^{t=b}{\text{rate of change}}=\text{amount accumulated from} \ t=a \ \text{to} \ t=b$$
+    \item Approach all accumulation problems, especially those with more convoluted problem statements, by writing down all individual rates and subsequent integrals. 
+\end{itemize}
+
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{4.1} During a six hour period, rain water accumulates into a pond at a rate, in cubic feet per hour, of $R(t)=14e^{t^2/120}$, where $t$ is measured in hours since the start of the period. At the beginning of this period, there is 700 cubic feet of water in the pond. Find the amount of water in the pond in cubic feet at the end of the six hour period. \\
+\\
+\noindent 
+\textbf{4.2} Starting at midnight, water flows into a tub at a rate, in gallons per hour, of $F(t)$, where $t$ is measured in hours since midnight. At 3 A.M., a large crack appears in the tub, causing water to drain at a rate, in gallons per hour, of $C(z)$, where $z$ is measured in hours since 3 A.M. Write, but do not evaluate, an equation to find the first time $a$ after midnight for when the tub is empty. \\
+\\
+\noindent 
+\textbf{4.3} From noon to 6 P.M, snow pours down on Sandra's driveway at a rate, in cubic feet per hour, of $S(t)=5\sqrt{t}+3t$, where $t$ is measured in hours since noon. Starting at 2 P.M., Sandra begins to shovel snow out of her driveway at a rate, in cubic feet per hour, of $D(t)=e^{2x}$, where $x$ is measured in hours since 2 P.M. Find the amount of snow, in cubic feet, that is in Sandra's driveway at 3:30 P.M.
+\end{document}

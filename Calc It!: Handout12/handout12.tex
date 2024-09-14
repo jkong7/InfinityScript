@@ -1,0 +1,245 @@
+\title{L'Hôpital's Rule}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Indeterminate form of type $\frac{0}{0}$}
+\noindent 
+In this section, we will use derivatives to evaluate limits with indeterminate forms. In our previous work with limits, we have already looked at many limits with indeterminate forms. An example is 
+$$\lim_{x \to 2} \frac{x^2-4}{x-2}$$
+\noindent 
+which has the indeterminate form $\frac{0}{0}$. 
+We can easily evaluate the limit by factoring:
+$$\lim_{x \to 2} \frac{x^2-4}{x-2}=\lim_{x \to 2}(x+2)=4$$
+\noindent 
+However, there are many limits with indeterminate forms for which algebraic methods fail to yield a solution. Therefore, we look to find a general method. \\
+\\
+\noindent 
+\textbf{L'Hôpital's rule} converts an indeterminate form limit into a limit that is easier to evaluate through differentiation. We will first look at L'Hôpital's rule for limits with indeterminate form of type $\frac{0}{0}$: \\
+\\
+\noindent 
+Suppose that $f$ and $g$ are differentiable functions such that 
+$$\lim_{x \to a}\frac{f(x)}{g(x)}=\frac{0}{0}$$
+Then,  
+$$\lim_{x \to a}\frac{f(x)}{g(x)}=\lim_{x \to a}\frac{f'(x)}{g'(x)}$$
+\noindent 
+To use L'Hôpital's rule, we first identify whether the function has an indeterminate form of $\frac{0}{0}$. If it does, we differentiate the numerator and denominator of the limit and evaluate the new limit. If the result is a finite number or positive/negative infinity, that is our answer and we are done. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Evaluate the following limits: 
+$$\text{(a)} \ \lim_{x \to 0} \frac{e^x-1}{x} \ \ \ \ \ \text{(b)} \ \lim_{x \to \pi} \frac{x- \pi}{\sin x} \ \ \ \ \ \text{(c)} \ \lim_{x \to 1} \frac{5 \ln x}{x-1}$$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 1.1:} \\
+\\
+\noindent 
+(a) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to 0}f(x)=e^0-1=0$$
+$$\lim_{x \to 0}g(x)=0$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{0}{0}$, so we proceed using L'Hôpital's rule: 
+\begin{align*}
+ \lim_{x \to 0} \frac{e^x-1}{x} &=\lim_{x \to 0} \frac{e^x}{1} \\          
+                                &=\frac{e^0}{1} \\
+                                &=1
+\end{align*}
+\noindent 
+(b) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to \pi}f(x)\pi-\pi=0$$
+$$\lim_{x \to \pi}g(x)= \sin 0=0$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{0}{0}$, so we proceed using L'Hôpital's rule:
+\begin{align*}
+\lim_{x \to \pi} \frac{x- \pi}{\sin x} &= \lim_{x \to \pi} \frac{1}{\cos x} \\
+                                       &=\frac{1}{\cos \pi} \\
+                                       &=-1
+\end{align*}
+\noindent 
+(c) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to 1}f(x)=5 \ln 1=0$$
+$$\lim_{x \to 1}g(x)=1-1=0$$
+This limit is therefore an indeterminate form of type $\frac{0}{0}$, so we proceed using L'Hôpital's rule:
+\begin{align*}
+\lim_{x \to 1} \frac{5 \ln x}{x-1} &= \lim_{x \to 1} \frac{\frac{5}{x}}{1} \\
+                                   &=\lim_{x \to 1} \frac{5}{x} \\
+                                   &=\frac{5}{1}\\
+                                   &=5
+\end{align*}
+\section{Indeterminate form of type $\frac{\infty}{\infty}$}
+\noindent 
+The other indeterminate form we will look at is $\frac{\infty}{\infty}$. L'Hôpital's rule states the following: \\
+\\
+\noindent 
+Suppose that $f$ and $g$ are differentiable functions such that
+$$\lim_{x \to a}f(x)=\infty \ \text{and} \ \lim_{x \to a}g(x)=\infty$$
+\noindent 
+Then, 
+$$\lim_{x \to a}\frac{f(x)}{g(x)}=\lim_{x \to a}\frac{f'(x)}{g'(x)}$$
+\noindent 
+The process for using L'Hôpital's Rule here is identical to what we previously did. We first identify whether the limit is an indeterminate form of $\frac{\infty}{\infty}$. If it is, differentiate the numerator and denominator of the limit and evaluate the new limit. If the result is a finite number or positive/negative infinity, that is our answer and we are done.  
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Evaluate the following limits:
+$$\text{(a)} \ \lim_{x \to \infty} \frac{10 + \ln x}{3x^3} \ \ \ \ \ \text{(b)} \ \lim_{x \to \infty} \frac{\ln (2x)}{5x^2} \ \ \ \ \ \text{(c)} \ \lim_{x \to \infty} \frac{e^x}{100x}$$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.1:} \\
+\\
+\noindent 
+(a) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to \infty}f(x)=10 + \ln \infty=\infty$$
+$$\lim_{x \to \infty}g(x)=3(\infty)^3=\infty$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{\infty}{\infty}$, so we proceed using L'Hôpital's rule: 
+\begin{align*}
+\lim_{x \to \infty} \frac{10+ \ln x}{3x^3} &= \lim_{x \to \infty}{\frac{\frac{1}{x}}{9x^2}} \\
+                                           &=  \lim_{x\to \infty}{\frac{1}{9x^3}} \\
+                                           &=    \lim_{x \to \infty}{\frac{1}{9(\infty)^3}} \\
+                                                                    &=    {\frac{1}{\infty}} \\
+                                           &=0
+\end{align*}
+\noindent 
+(b) We first identify whether the limit is an indeterminate form: 
+$$\lim_{x \to \infty}f(x)=\ln (2 \cdot \infty)=\infty$$
+$$\lim_{x \to \infty}g(x)=5(\infty)^2=\infty$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{\infty}{\infty}$, so we proceed using L'Hôpital's rule: 
+\begin{align*}
+\lim_{x \to \infty}\frac{\ln (2x)}{5x^2} &= \lim_{x \to \infty}\frac{\frac{2}{2x}}{10x} \\
+                                         &=          \lim_{x \to \infty}\frac{1}{10x^2} \\
+                                         &=      \frac{1}{10(\infty)^2} \\
+                                         &=0
+\end{align*}
+
+\noindent 
+(c) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to \infty}f(x)=e^\infty=\infty$$
+$$\lim_{x \to \infty}g(x)=100(\infty)=\infty$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{\infty}{\infty}$, so we proceed using L'Hôpital's rule:
+\begin{align*}
+\lim_{x \to \infty} \frac{e^x}{100x} &= \lim_{x \to \infty}{\frac{e^x}{100}} \\
+                                     &=\lim_{x \to \infty}{\frac{e^{\infty}}{100}} \\
+                                     &=  \frac{\infty}{100} \\
+                                     &=\infty
+\end{align*}
+\section{A few tougher limits}
+\noindent 
+For some limits, applying L'Hôpital's rule still results in an indeterminate form limit. Using L'Hôpital's rule more than once is often needed to finally arrive at a limit that can be evaluated. The following three limits require this: 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Evaluate the following limits: 
+$$\text{(a)} \ \lim_{x \to \infty} \frac{e^x}{10x^2} \ \ \ \ \ \text{(b)} \ \lim_{x \to \infty} \frac{(\ln x)^2}{e^x} \ \ \ \ \ \text{(c)} \ \lim_{x \to 0} \frac{\ln(\cos 2x)}{15x^2}$$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 3.1:} \\
+\\
+\noindent 
+(a) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to \infty}f(x)=e^\infty=\infty$$
+$$\lim_{x \to \infty}g(x)=10(\infty)^2=\infty$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{\infty}{\infty}$, so we proceed using L'Hôpital's rule:
+\begin{align*}
+\lim_{x \to \infty}\frac{e^x}{10x^2} &=\lim_{x \to \infty}\frac{e^x}{20x}
+\end{align*}
+\noindent 
+This new limit is still an indeterminate form of type $\frac{\infty}{\infty}$, so we use L'Hôpital's rule again: 
+\begin{align*}
+\lim_{x \to \infty}\frac{e^x}{20x} &= \lim_{x \to \infty}\frac{e^x}{20} \\
+                                   &=    
+\frac{e^\infty}{20} \\
+                                   &=\infty
+\end{align*}
+\noindent 
+(b) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to \infty}f(x)=(\ln(\infty))^2=\infty$$
+$$\lim_{x \to \infty}g(x)=e^\infty=\infty$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{\infty}{\infty}$, so we proceed using L'Hôpital's rule: 
+\begin{align*}
+ \lim_{x \to \infty} \frac{(\ln x)^2}{e^x} &= \lim_{x \to \infty} \frac{2(\ln x)(\frac{1}{x})}{e^x} \\
+                                           &= \lim_{x \to \infty} \frac{2 \ln x}{xe^x}
+\end{align*}
+\noindent 
+This new limit is still an indeterminate form of type $\frac{\infty}{\infty}$, so we use L'Hôpital's rule again: 
+\begin{align*}
+\lim_{x \to \infty} \frac{2 \ln x}{xe^x} &= \lim_{x \to \infty}\frac{2(\frac{1}{x})}{e^x+xe^x}\\
+                                         &=      \lim_{x \to \infty}\frac{2}{x(e^x+xe^x)} \\
+                                         &=      \frac{2}{\infty(e^\infty+\infty e^\infty)}\\
+                                         &=0
+\end{align*}
+\noindent 
+(c) We first identify if the limit is an indeterminate form: 
+$$\lim_{x \to 0}{f(x)}=\ln(\cos 0)=\ln1=0$$
+$$\lim_{x \to 0}g(x)=15(0)^2=0$$
+\noindent 
+This limit is therefore an indeterminate form of type $\frac{0}{0}$, so we proceed using L'Hôpital's rule:
+\begin{align*}
+\lim_{x \to 0} \frac{\ln(\cos 2x)}{15x^2} &=\lim_{x \to 0} \frac{\frac{-2 \sin 2x}{\cos 2x}}{30x} \\
+&=\lim_{x \to 0} \frac{-\sin 2x}{15x \cos 2x}
+\end{align*}
+\noindent 
+This new limit is still an indeterminate form of type $\frac{0}{0}$, so we use L'Hôpital's rule again: 
+\begin{align*}
+\lim_{x \to 0} \frac{-\sin 2x}{15x \cos 2x} &=\lim_{x \to 0} \frac{-2\cos 2x}{15(\cos 2x+x(-2\sin 2x))} \\
+&=\lim_{x \to 0}\frac{-2 \cos 0}{15(\cos 0+0(-2 \sin 0))} \\
+&=-\frac{2}{15}
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item L'Hôpital's rule uses differentiation to evaluate limits with indeterminate form. 
+    \item Two very common types of indeterminate forms are $\frac{0}{0}$ and $\frac{\infty}{\infty}$. 
+    \item L'Hôpital's rule states to differentiate the numerator and denominator of the indeterminate form limit. If the new limit results in a finite number or positive/negative infinity, that is the value of the limit. 
+    \item For many limits, using L'Hôpital's rule more than once is necessary for evaluation. 
+\end{itemize}
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{5.1} Evaluate the following limits: 
+$$\text{(a)} \ \lim_{x \to 0} \frac{e^{2x}-e^{3x}}{x} \ \ \ \ \ \text{(b)} \ \lim_{x \to 0} \frac{\sin 2x}{\tan 3x} \ \ \ \ \ \text{(c)} \ \lim_{x \to 3} \frac{x^2-9}{3x^2+x-30}$$
+\noindent 
+\textbf{5.2} Evaluate the following limits: $$\text{(a)} \ \lim_{x \to \infty} x^3e^{-2x} \ \ \ \ \ \text{(b)} \ \lim_{x \to \infty} \frac{4x^3+2x^2-3x+8}{7x^3-8x} \ \ \ \ \ \text{(c)} \ \lim_{x \to \infty} \frac{\sqrt{x}}{\ln x}$$
+\noindent
+\textbf{5.3} Evaluate the following limits: $$\text{(a)} \ \lim_{x \to 0} \frac{1- \cos x}{x^2} \ \ \ \ \ \text{(b)} \ \lim_{x \to 0} \frac{\sin x -x}{2x^3} \ \ \ \ \ \text{(c)} \ \lim_{x \to \infty} \frac{e^x}{x^{100}}$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

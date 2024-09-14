@@ -1,0 +1,110 @@
+\title{Integrating Products of Sines and Cosines}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Method for integrating products of sine and cosine}
+\noindent
+In this section, we will use an integration method that allows for integrating products of sines and cosines. \\
+\\
+\noindent 
+We will use the following trigonometric identity: 
+$$\sin ^2 x + \cos ^2 x=1$$
+\noindent 
+The integrals we will look at are of the following form: 
+$$\int{\sin ^m x \cos ^n x \ dx}$$
+\noindent 
+where one of $m$ or $n$ is odd and the other even. Our procedure for evaluating these integrals is as follows: 
+\begin{enumerate}
+    \item Identify whether the exponent of $\cos x$ or $\sin x$ is odd (for the purposes of the list, assume $\cos x$ has the odd exponent). 
+    \item Split off a factor of $\cos x$
+    \item Apply the Pythagorean identity $\cos ^2 x = 1-\sin ^2 x$ and substitute. 
+    \item Make the $u$-substitution $u=\sin x$
+\end{enumerate}
+\noindent 
+If $\sin x$ has the odd exponent, all of the steps are simply mirrored using the opposite trig function.  
+\section{Integrating products of sine and cosine problems}
+\noindent 
+The first three steps simplifies the integral into a product that consists of only one factor of either $\sin x$ or $\cos x$. Then, applying $u$-sub eliminates this single factor and the entire integral can be integrated in terms of $u$. In each of the following integrals, keep in mind which substitutions and separations to make based off the exponents. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Evaluate $\int{\sin ^6 x \cos ^7 x \ dx}$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.1:} We begin by identifying which trig function has an odd exponent. Because $\cos x$ has the odd exponent, we split off a factor of $\cos x$: 
+\begin{align*}
+    \int{\sin ^6 x \cos ^7 x \ dx} &=\sin ^6 x \cos ^6 x \cos x \ dx 
+\end{align*}
+\noindent 
+We now make the substitution $\cos ^2 x=1- \sin ^2 x$: 
+\begin{align*}
+     \int{\sin ^6 x \cos ^7 x \ dx} &=\sin ^6 x(1- \sin ^2 x)^3 \cos x \ dx
+\end{align*}
+\noindent 
+Finally, to get rid of the $\cos x$, we apply the $u$-substitution $u=\sin x \Rightarrow du=\cos x \ dx$.The integration is then as follows: 
+\begin{align*}
+     \int{\sin ^6 x \cos ^7 x \ dx} &=\int{u^6(1-u^2)^3 \ du} \\
+     &=\int{(u^6-3u^8+3u^{10}-u^{12}) \ du} \\
+     &=\frac{1}{7}u^7-\frac{1}{3}u^9+\frac{3}{11}u^{11}-\frac{1}{13}u^{13} + C \\
+     &=\frac{1}{7}\sin ^7 x -\frac{1}{3} \sin ^9 x +\frac{3}{11} \sin ^{11} x -\frac{1}{13} \sin ^{13} x +C
+\end{align*}
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Evaluate $\int \cos ^4 x \sin ^5 x \ dx$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.2:} Because the exponent of $\sin x$ is odd, we split off a factor of $\sin x$ and then apply the Pythagorean identity $\sin ^2 x=1- \cos ^2 x$: 
+\begin{align*}
+    \int{\cos ^4 x \sin ^5 x} \ dx &=\int {\cos ^4 x \sin ^4 x \sin x \ dx} \\
+                                   &=\int{\cos ^4 x (1-\cos ^2 x)^2 \sin x \ dx} 
+\end{align*}
+\noindent 
+From here, we make the $u$-substitution $u=\cos x \Rightarrow du=-\sin x \ dx \Rightarrow -du=\sin x \ dx$. The integration is then as follows: 
+\begin{align*}
+     \int{\cos ^4 x \sin ^5 x} \ dx &=-\int{u^4(1-u^2)^2 \ du} \\
+     &=-\int{(u^4-2u^6+u^8)} \ du \\
+     &=-\left(\frac{1}{5}u^5-\frac{2}{7}u^7+\frac{1}{9}u^9\right) +C \\
+     &=-\frac{1}{5}\cos ^5 x +\frac{2}{7}\cos ^7 x-\frac{1}{9}\cos ^9 x +C
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item The integration method explored in this section involves integrals of the following form:
+    $$\int \sin ^m \cos ^n x \ dx$$
+    \noindent 
+    where one of $m$ or $n$ is odd and the other even.  
+    \item The method uses the Pythagorean identity $\cos^2 x=1-\sin ^2 x$ as well as $u$-sub to transform the integral above into being in terms of $u$ and ready to integrate. 
+\end{itemize}
+\noindent 
+\section{Exercises}
+\noindent 
+\textbf{4.1} Evaluate $\int{\sin ^3 x \cos ^4 x \ dx}$ \\
+\\
+\noindent 
+\textbf{4.2} Evaluate $\int{\cos ^ 6 x \sin ^7 x \ dx}$ \\
+\\
+\noindent 
+\textbf{4.3} Evaluate $\int{\sin ^3 4x \cos 4x \ dx}$ 
+\end{document} 

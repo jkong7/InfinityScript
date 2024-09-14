@@ -1,0 +1,237 @@
+\title{The Indefinite Integral}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Anti-derivative and the indefinite integral}
+\noindent
+In this section, we shift our focus away from derivatives and look to a new concept: the integral. The integral is primarily used with two types of problems. The first problem, which deals with reversing the process of differentiation, is what we will cover in this section. \\
+\\
+\noindent 
+The process of reversing differentiation is known as \textbf{anti-differentiation}. \\ 
+\\
+\noindent 
+Let's define a simple derivative relationship between two functions as follows: 
+$$\frac{d}{dx}(F(x))=f(x)$$
+\noindent 
+Here, the derivative of $F(x)$ is $f(x)$, and so the \textit{anti}-derivative of $f(x)$ is $F(x)$. We denote this relationship as so: 
+$$\int{f(x) \ dx}=F(x)$$
+\noindent 
+The anti-derivative is more commonly known as the \textbf{indefinite integral}. Here, the $\int$ symbol is known as the integrand. The equation reads as \say{an indefinite integral of $f(x)$ with respect to $x$ is $F(x)$}. \\
+\\
+\noindent 
+Just like the notation $\frac{d}{dx}$ tells us we are differentiating with respect to $x$, the $dx$ portion of the integral tells us we are integrating with respect to $x$. This symbol is necessary to include. \\
+\\
+\noindent 
+The integral relationship above is missing one thing. Examine the following derivative and anti-derivative relationship: 
+$$\frac{d}{dx}(x^3)=3x^2 \ \ \ \ \ \ \text{so} \ \ \ \ \ \ \int{3x^2 \ dx}=x^3$$
+\noindent 
+Although the derivative of $x^3$ is $3x^2$, it is not the only function whose derivative is $3x^2$. Take, for example, $x^3+5$ or $x^3+1000$. Adding any constant to $x^3$ would still result in the same derivative. Therefore, we write the integral relationship with an added symbol: 
+$$\int{3x^2 \ dx}=x^3+C$$
+\noindent 
+The $C$ represents a constant. The indefinite integral therefore represents a family of functions whose derivatives are all the same, hence its name \say{indefinite}. \\
+\\
+\noindent 
+Like the $dx$ symbol, the $C$ is always necessary to include in any integration statement. 
+\section{Evaluating basic integrals}
+\noindent 
+For the remainder of this section, we will integrate common functions. When we start to explore various integration methods in later sections, mastery of the basic integrals will be crucial. \\
+\\
+\noindent 
+Two basic integral rules are as follows: $$\int{kf(x) \ dx}=k\int{f(x) \ dx}, \ \text{where } k \ \text{is a constant}$$
+$$\int[f(x)\pm g(x)] \ dx=\int{f(x) \ dx} \pm \int{g(x) \ dx}$$
+\noindent 
+These are quite intuitive and are identical to their differentiation counterparts. \\
+\\
+\noindent 
+We will next go through some basic integrals. For each, simply ask yourself: the derivative of what function is equal to this? Don't forget to include the $+C$ for each. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Evaluate the following integrals: \\
+\\
+\noindent 
+(a) \;\;$\int{6} \ dx$ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;(b) \;\;$\int{\cos x} \ dx$ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;(c) \;\;$\int{3x^2} \ dx$ \\
+\\
+\noindent 
+(d) \;\;$\int \sec ^2 x \ dx$\;\;\;\;\;\;\;\;\; (e) \;\;$\int 5x^4 \ dx$ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; (f) \;\;$\int{e^x} \ dx$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.1:} \\
+\noindent 
+\\
+\noindent 
+(a) $$\int{6} \ dx=6x+C$$ \\
+\\
+\noindent 
+(b) $$\int{\cos x} \ dx=\sin x +C$$ \\
+\\
+\noindent
+(c) $$\int{3x^2 \ dx}=x^3+C$$ \\
+\\
+\noindent 
+(d) $$\int{\sec ^2 x \ dx}=\tan x +C$$\\
+\\
+\noindent
+(e) $$\int{5x^4 \ dx}={x^5}+C$$ \\
+\\
+\noindent 
+(f) $$\int{e^x \ dx}=e^x +C$$
+\noindent 
+As you practice more and more with integrating basic functions such as these, you should get more proficient. By now, you are probably quite quick with derivatives; the same should happen once we dive deeper into integration. 
+\section{Integrating power functions}
+\noindent 
+We will now derive a formula for integrating the power function $x^n$, where $n$ is a positive integer. \\
+\\
+\noindent As an example, we will use the integral $\int x^6 \ dx$. We know that when taking the derivative of a power function, the exponent decreases by one. Therefore, to arrive at an exponent of 6, our integral must include an exponent of 7: 
+$$x^7$$ 
+\noindent 
+However, the derivative of $x^7$ is $7x^6$, and not the desired $x^6$, so our integral must account for this by including a factor of $\frac{1}{7}$: 
+$$\int{x^6} \ dx=\frac{x^7}{7}+C$$
+\noindent 
+We can apply the same reasoning to arrive at a general rule: 
+$$\int{x^n} \dx=\frac{x^{n+1}}{n+1} + C$$
+\noindent 
+As we look through more and more integrals, evaluating such functions should become second nature just as differentiating using the power rule is. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Evaluate the following integrals: \\
+\\
+\noindent 
+(a) \;\; $\int{(x^6+5x^5)} \ dx$ \\
+\\
+\noindent 
+(b) \;\; $\int{(4x+x^2-7x^4)} \ dx$ \\
+\\
+\noindent 
+(c) \;\; $\int{(-3x^{10}+\frac{7}{5}x^5-2x)} \ dx$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 3.1:} For each integral, we use the constant and sum/difference properties for simplification: \\
+\\
+\noindent 
+(a) \begin{align*}
+    \int{(x^6+5x^5)} \ dx &=\int{x^6 \ dx}+5\int{x^5 \ dx} \\
+                          &=   \frac{x^7}{7}+5\left(\frac{x^6}{6}\right)+C \\
+                          &= \frac{x^7}{7}+\frac{5x^6}{6}+C
+\end{align*}
+\noindent 
+Although there are two integrals, our final answer needs only one $C$. This is because the $C$ represents \textit{any} constant; writing more than one $C$ is then redundant. The second thing to note is that when writing your integration steps out, once you have reached a line that no longer includes an integral, the $C$ becomes necessary to include. \\
+\\
+\noindent 
+(b) 
+\begin{align*}
+    \int{(4x+x^2-7x^4)} \ dx &= 4\int{x} \ dx+\int x^2 \ dx-7\int x^4 \ dx \\
+                             &= 4\left(\frac{x^2}{2}\right)+\frac{x^3}{3}-7\left(\frac{x^5}{5}\right) +C\\
+                            &=                4x+\frac{x^3}{3}-\frac{7x^5}{5}+C
+\end{align*}\\
+\noindent\\
+(c) 
+\begin{align*}
+    \int{(-3x^{10}+\frac{7}{5}x^5-2x) \ dx} &= -3\int{x^{10}} \ dx +\frac{7}{5}\int{x^5} \ dx-2\int{x} \ dx \\
+                                            &= -3\left(\frac{x^{11}}{11}\right)+\frac{7}{5}\left(\frac{x^6}{6}\right)-2\left(\frac{x^2}{2}\right)+C \\
+                                            &= \frac{-3x^{11}}{11}+\frac{7x^6}{30}-x^2+C
+\end{align*}
+\section{Integrating trigonometric functions} 
+\noindent 
+Previously, we evaluated the following two integrals: 
+$$\int{\cos x \ dx}=\sin x +C$$
+$$\int{\sec ^2 x} \ dx=\tan x +C$$
+\noindent 
+By recalling your knowledge of trigonometric derivatives, fill in the remaining trigonometric integrals. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 4.1} Evaluate the following integrals: \\
+\\
+\noindent 
+(a) \;\; $\int{\sin x}\ dx$ \\
+\\
+\noindent 
+(b) \;\; $\int{\sec x \tan x \ dx}$ \\
+\\
+\noindent 
+(c) \;\; $\int{\csc ^2 x} \ dx$ \\
+\\
+\noindent
+(d) \;\; $\int \csc x \cot x\ dx$ 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 4.1:} Listed below are the derivative and integration counterparts for all six trigonometric functions: 
+$$\frac{d}{dx}\sin x=\cos x \Rightarrow \int{\cos x \ dx}=\sin x + C$$
+$$\frac{d}{dx}\cos x=-\sin x \Rightarrow \int{\sin x \ dx}=-\cos x + C$$
+$$\frac{d}{dx} \tan x=\sec ^2 x \Rightarrow \int{\sec ^2 x \ dx}=\tan x + C$$
+$$\frac{d}{dx} \sec x=\sec x \tan x \Rightarrow \int{\sec x \tan x \ dx}=\sec x + C$$
+$$\frac{d}{dx} \cot x=-\csc ^2 x \Rightarrow \int{\csc ^2 x \dx } =-\cot x + C$$
+$$\frac{d}{dx} \csc x=-\csc x \cot x \Rightarrow \int{\csc x \cot x \ dx}=-\csc x + C$$
+\section{Integrating the natural exponential and logarithmic functions}
+\noindent 
+We end our integration of the basic functions with the natural exponential and logarithmic functions. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 5.1} Evaluate the following integrals: \\
+\\
+\noindent 
+(a) \;\; $\int e^x \ dx$ \\
+\\
+\noindent 
+(b) \;\; $\int \frac{1}{x} \ dx$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 5.1:} \\
+\\
+\noindent 
+(a) Because $\frac{d}{dx} e^x=e^x$, we have that 
+$$\int{e^x \ dx}=e^x+ C$$
+\noindent 
+(b) Here, we have to be a little more careful. Because $\frac{d}{dx}{\ln x}=\frac{1}{x}$, you may think that the integral is simply the reverse. \\
+\\
+\noindent 
+However, $\frac{1}{x}$ is defined for values of $x$ less than zero, while $\ln x$ is defined only for positive values of $x$. We can fix this by noting that, with the chain rule, $\frac{d}{dx}(\ln(-x))=-\frac{1}{-x}=\frac{1}{x}$. Therefore, both $\ln x$ and $\ln(-x)$ are anti derivatives of $\frac{1}{x}$. To account for both cases, we introduce the absolute value sign:
+$$\int \frac{1}{x}=\ln \lvert x \rvert +C$$
+\section{Recap points}
+\begin{itemize}
+    \item The process of reversing differentiation is known as anti-differentiation. 
+    \item The anti-derivative is also known as the indefinite integral, which represents a family of functions whose derivatives are all the same. 
+    \item The symbol $dx$ tells that we are integrating with respect to $x$. If, for example, $y$ is the variable being integrated, you must write a $dy$. The $+C$ symbol represents the entire family of constants and is necessary to include whenever you evaluate an indefinite integral. 
+    \item Many common functions can be integrated by posing the question: the derivative of what function is equal to this? 
+\end{itemize}
+\section{Exercises} \\
+\\
+\noindent 
+\textbf{7.1} Evaluate the following integrals: \\
+\\
+\noindent 
+(a) $\int{\frac{5}{4}x^7} \ dx$\\
+\\
+\noindent 
+(b) $\int{(2\sec^2 x +5x^2) \ dx}$\\
+\\
+\noindent 
+(c) $\int{(4e^x + \csc ^2 x) \ dx}$\\
+\\
+\noindent 
+(d) $\int \frac{2}{x^9} \ dx$\\
+\\
+\noindent 
+(e) $\int{(5x^3+\frac{3}{x^{12}}-\frac{1}{x^2}) \ dx}$
+\end{document}

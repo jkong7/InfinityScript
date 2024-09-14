@@ -1,0 +1,125 @@
+\title{Newton’s method}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Newton's method: Concept and derivation}
+\noindent
+In this section, we will use Newton's method to estimate the roots of functions. In algebra, students learn to find solutions to first-degree functions. As the subjects progress, second-degree and third-degree functions are introduced, and subsequently, formulas for their roots are learned. \\
+\\
+\noindent 
+However, what happens when the degree of a function is too large for a formula of its roots? Mathematician Niels Henrik Abel proved that it is impossible to construct a simple formula for the solutions of a fifth-degree polynomial or higher.\\
+\\
+\noindent 
+A way to approximate the real roots of polynomials exists with Newton's method. Take a look at the image below:\\
+\\
+\noindent 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Screenshot (478).png}
+\end{figure}\\
+\noindent
+Newton's method uses a series of linear approximations to get closer to the root of a function $r$. In the figure above, we try to find the root $r$ of the equation $f(x)=0$. Our first step is to make a rough estimate, which we will denote as $x_0$. If $f(x_0)=0$, we have found the root of the function. If $f(x_0)$ does not equal zero, we take the linear approximation at $x_0$ and find its $x$-intercept $x_1$. Similarly, if $f(x_1)$ does not equal zero, we take the linear approximation at $x_1$ and find its $x$-intercept $x_2$. Each subsequent $x$-intercept value gets closer and closer to the actual root. This is the general idea behind Newton's method. \\
+\\
+\noindent
+Let's derive a formula to implement Newton's method analytically. The equation of the linear approximation for a function $f$ at a point $x_0$ is 
+$$y-f(x_0)=f'(x_0)(x-x_0)$$
+This line crosses the $x$-axis at some point $(x_1,0)$. Substituting this point into the equation, we get
+\begin{center}
+0 - $f(x\textsubscript0)$ = $f'(x\textsubscript0)(x_1-x_0)$
+\end{center}
+and solving for $x_1$:
+$$x\textsubscript1 = x\textsubscript0 - \frac{f(x\textsubscript0)}{f'(x\textsubscript0)}$$
+We follow this pattern: every time a value is not equal to zero, we substitute the next number to find a new $x$. This leads us to the general form of Newton's method: 
+$$x\textsubscript{n+1} = x\textsubscript{n} - \frac{f(x\textsubscript{n})}{f'(x\textsubscript{n})}$$
+Every subsequent substitution gets us closer and closer to the actual root.  
+\section{Newton's method problems} 
+\noindent 
+For the remainder of the section, use of a calculator or some other computing device may be necessary. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Use Newton's method to approximate the real root of $f(x)=x^3 - x - 1 = 0$ to five decimal places. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.1:} 
+\noindent 
+The first step is to make an approximation of where we think our root is. We note that $f(1)=-1$ and $f(2)=5$ so our root must lie between 1 and 2; $x_0=1.5$ serves as a good estimate. \\
+\\
+\noindent 
+Next, we find the derivative of $f$. $f(x)$ = $x^3 - x - 1$ and so $f'(x)=3x^2-1$. The Newton's method formula is then 
+$$x_{n+1}=x_n-\frac{x^3-x-1}{3x^2-1}$$
+Substituting in 1.5 for $x_0$ yields 
+\begin{align*}
+    x_1 =1.5-\frac{1.5^3-1.5-1}{3(1.5)^2-1} \approx 1.3478261
+\end{align*} 
+Substituting in 1.3478261 for $x_1$ yields 
+\begin{align*}
+    x_2 =1.3478261-\frac{1.3478261^3-1.3478261-1}{3(1.3478261)^2-1} \approx 1.3252004
+\end{align*}
+Substituting in 1.3252004 for $x_2$ yields 
+\begin{align*}
+    x_3 =1.3252004-\frac{1.3252004^3-1.3252004-1}{3(1.3252004)^2-1} \approx 1.3247182
+\end{align*}
+Finally, substituting in 1.3247182 for $x_3$ yields 
+\begin{align*}
+    x_4 =1.3247182-\frac{1.3247182^3-1.3247182-1}{3(1.3247182)^2-1} \approx 1.3247180
+\end{align*}
+\noindent 
+Because the first five decimals have been repeated, we can stop. Newton's method gives that the root, to five decimal places, is 1.32471.\\
+\\
+\noindent 
+There are some issues with Newton's method that should be known. \\
+\\
+\noindent 
+If the derivative of a function is equal to 0 when you plug in some $x$ value, you are dealing with a horizontal tangent. Horizontal tangents never cross the $x$-axis so the next approximation will never occur. You will have to use a different value and try again.\\
+\\
+\noindent 
+Also, Newton's method sometimes fails to converge to a root. For example, the function $f(x)=x^{1/3}$ has one root at $x=0$. Newton's method results in
+$$x\textsubscript{n+1} = x\textsubscript{n} - \frac{(x\textsubscript{n})\textsuperscript{1/3}}{\frac{1}{3}(x\textsubscript{n})\textsuperscript{-2/3}}$$
+or $$x\textsubscript{n+1} = -2x\textsubscript{n}$$
+If we try $x_0=1$, our values get progressively farther away the actual root: -2 to 4 to -8.
+\section{Recap points}
+\begin{itemize}
+    \item Newton's method is used to estimate the roots of functions. 
+    \item It achieves this through using a series of linear approximations. First, an estimate for the value of the root is made: $x_0$. The $x$-intercept of the linear approximation line at $x_0$ is found: $x_1$. Then, the $x$-intercept of the linear approximation line at $x_1$ is found: $x_2$. This process of finding successive $x$-intercepts gets you closer and closer to the actual root. 
+    \item The general form of Newton's method is as follows: 
+    $$x\textsubscript{n+1} = x\textsubscript{n} - \frac{f(x\textsubscript{n})}{f'(x\textsubscript{n})}$$
+    \item There are some cases where Newton's method does not work. Common ones include when the derivative value is zero or when the successive approximations fails to converge to a root. 
+\end{itemize}
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{4.1} Approximate $\sqrt{2}$ to four decimal places by applying Newton's Method to the equation $x^2-2=0$.\\
+\\
+\noindent 
+\textbf{4.2} Approximate $\sqrt{5}$ to four decimal places by applying Newton's Method to the equation $x^2-5=0$. \\
+\\
+\noindent 
+\textbf{4.3} Use Newton's method to approximate the real root of $f(x)=x^3-2x-2$ to four decimal places. 
+\end{document}

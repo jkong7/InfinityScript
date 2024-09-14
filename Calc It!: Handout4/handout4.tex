@@ -1,0 +1,321 @@
+
+\title{Derivative Properties}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{The basic properties}
+\noindent
+If we had to use the limit definition of the derivative every time we wanted to find the derivative of a function, it would take extremely long. Instead, there are properties that we can use to make the process much quicker. Let's begin with the sum/difference property:\\
+\noindent\\
+Let $f$ and $g$ be differentiable functions. Then, $(f+g)'=f'+g'$.\\
+\noindent\\
+We can use the definition of derivative to show this:
+\begin{align*}
+(f+g)'(x) &= \lim_{h \to 0} \frac{f(x+h)+g(x+h)-f(x)-g(x)}{h}\\
+          &= \lim_{h \to 0}\left(\frac{f(x+h)-f(x)}{h}+\frac{g(x+h)-g(x)}{h}\right)\\
+          &= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}+\lim_{h \to 0} \frac{g(x+h)-g(x)}{h}\\
+          &= f'(x)+g'(x)   
+\end{align*}
+\noindent
+In a very similar manner, we can prove the constant property:\\
+\noindent\\
+Let $f$ be a differentiable function, and $c$ a real number. Then,  $(cf)'=c(f')$.\\
+\noindent\\
+We can show this by using the definition of derivative and also the constant property of limits:
+\begin{align*}
+    (cf(x))' & = \lim_{h \to 0} \frac{cf(x+h)-cf(x)}{h}\\
+& = c\left(\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\right)\\
+& = c(f'(x))
+\end{align*}
+\noindent
+Next, we will take a look at the power rule:\\
+\noindent\\
+Let $n$ be any real number. If $f(x)=x^n$, then $f'(x)=nx^{n-1}$.\\
+\noindent\\
+The following proof is only for cases where $n$ is a positive integer. To prove that the power rule is true with $n$ being any real number, we must still consider other cases. 
+$$f'(x)=\lim_{h \to 0} \frac{(x+h)^n-x^n}{h}$$
+We can use the binomial theorem to expand out:
+$$f'(x)=\lim_{h \to 0} \frac{\left(x^n+{n \choose 1}x^{n-1}h+{n \choose 2}x^{n-2}h^2+...+h^n\right)-x^n}{h}$$
+Cancelling the $x^n$ terms and dividing out $h$ yields:
+$$f'(x)=\lim_{h \to 0} \left({n \choose 1}x^{n-1}+{n \choose 2}x^{n-2}h+...+h^{n-1}\right)$$
+Finally, we can consider the limit and substitute 0 in for $h$:
+$$f'(x)={n \choose 1}x^{n-1}=nx^{n-1}$$
+\noindent 
+It's okay to not fully understand the proofs in this section; the most important thing is understanding and applying the properties themselves.
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Using the power rule, show that the derivative of a constant $c$ is 0.
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 1.1:} We can begin by expressing the constant $c$ as $cx^0$. By the power and constant property, the derivative of this is:
+\begin{align*}
+f'(cx^0) &=c(x^0)' \\
+         &=c(0x^{-1}) \\
+         &=0
+\end{align*}
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.2} Differentiate the following: \\
+\noindent\\
+(a)\;\;\;\;$x^5-2x^3-5x^2+12$\\
+\noindent\\
+(b)\;\;\;\;$x^{19}-10x^{12}+120$\\
+\noindent\\
+(c)\;\;\;\;$\frac{10}{x^8}+\frac{4}{x^5}-\frac{5}{x^2}$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 1.2:}\\
+\noindent\\
+(a) By the sum property, we can begin by expressing the derivative as the sum of the derivatives of each term:
+\begin{align*}
+    f'(x) & = (x^5-2x^3-5x^2+12)'\\
+& = (x^5)'+(-2x^3)'+(-5x^2)'+(12)'
+\end{align*}
+By the constant property, we can take out the constant in each term:
+$$f'(x)=(x^5)'-2(x^3)'-5(x^2)'+(12)'$$
+Finally, we use the power rule: 
+\begin{align*}
+f'(x)& = (5x^4)-2(3x^2)-5(2x)+0\\
+     & = 5x^4-6x^2-10x
+\end{align*}
+\noindent
+(b) \begin{align*}
+    f'(x) &= 4(19x^{18})-10(12x^{11})+0\\
+          &= 76x^{18}-120x^{11}
+          \end{align*}
+          \noindent
+(c) We can express the function as:
+\begin{align*}
+    f(x) & = \frac{10}{x^8}+\frac{4}{x^5}-\frac{5}{x^2}\\
+         & = 10x^{-8}+4x^{-5}-5x^{-2}
+\end{align*}
+From here, we proceed the same way:
+$$f'(x)=-80x^{-9}-20x^{-6}+10x^{-3}$$
+Note to \textit{decrease} the exponent when dealing with negative exponents.
+\section{Product and quotient properties}
+The product rule lets us evaluate the derivative of products. It states:\\
+\noindent\\
+Let $f$ and $g$ be differentiable functions. Then, $(fg)'=f'g+fg'$.
+\\
+\noindent\\
+The quotient rule lets us evaluate the derivative of quotients of functions. It states:\\
+\noindent\\
+Let $f$ and $g$ be differentiable functions. Then,  $\left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}$.\\
+\noindent\\
+To prove these properties, we use the definition of derivative as well as algebraic manipulation. Although not shown here, feel free to prove these two properties yourself. \\
+\noindent\\
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Differentiate the following:\\
+\noindent\\
+(a) \;\;\;\;$(4x^3-5)(x^3-x)$\\
+\noindent\\
+(b) \;\;\;\;$\frac{5x^3}{x-1}$\\
+\noindent\\
+(c) \;\;\;\;$\frac{3x^2+x^5}{x^2+1}$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.1:}\\
+\noindent\\
+(a) Using the product rule:
+\begin{align*}
+    f'(x) & = (4x^3-5)'(x^3-x)+(4x^3-5)(x^3-x)'\\
+          & = (12x^2)(x^3-x)+(4x^3-5)(3x^2-1)\\
+          & = 24x^5-16x^3-15x^2+5
+\end{align*}
+(b) Using the quotient rule:
+\begin{align*}
+    f'(x) & = \frac{(5x^3)'(x-1)-(5x^3)(x-1)'}{(x-1)^2}\\
+          & = \frac{(15x^2)(x-1)-(5x^3)(1)}{(x-1)^2}\\
+          & = \frac{5(2x^3-3x^2)}{(x-1)^2}
+\end{align*}
+(c) Using the quotient rule:
+\begin{align*}
+    f'(x) & = \frac{(3x^2+x^5)'(x^2+1)-(3x^2+x^5)(x^2+1)'}{(x^2+1)^2}\\
+          & = \frac{(6x+5x^4)(x^2+1)-(3x^2+x^5)(2x)}{(x^2+1)^2}\\
+          & = \frac{3x^6+5x^4+6x}{(x^2+1)^2}
+\end{align*}
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Find the equation of the line tangent to $f(x)=(1+\sqrt x)(x^2)$ at $x=4$.
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 2.2:} We begin by finding the corresponding $y$ value at $x=4$:
+\begin{align*}
+    f(4) & = (1+ \sqrt 4)(4^2)\\
+         & = 48 
+\end{align*}
+The slope of the tangent line is the derivative of the function at $x=4$. We can find this using the product property:
+\begin{align*}
+    f'(x) & = (1+x^{\frac{1}{2}})'(x^2)+(1+x^{\frac{1}{2}})(x^2)'\\
+          & = (\frac{1}{2}x^{-\frac{1}{2}})(x^2)+(1+x^{\frac{1}{2}})(2x)
+\end{align*}
+\noindent 
+so
+\begin{align*}
+    f'(4) & = (\frac{1}{2}(4)^{-\frac{1}{2}})(4^2)+(1+4^\frac{1}{2})(2(4))\\
+          & = 28
+\end{align*}
+Our equation is of the line with slope 28 and which passes through the point $(4,48)$:
+$$y=28x-64$$
+\section{Derivatives of trigonometric functions}
+\noindent
+We can use what we know about derivatives to expand to trigonometric functions. We will take a look at the derivative of $\sin x$:
+\begin{align*}
+    \frac{d}{dx}\sin x & = \lim_{h \to 0} \frac{\sin (x+h)-\sin x}{h}
+\end{align*}
+$\sin (x+h)$ can be expanded with the sine angle-addition identity:
+\begin{align*}
+    & = \lim_{h \to 0} \frac{\sin x \cos h+\sin h \cos x-\sin x}{h}\\
+    & = \lim_{h \to 0} \frac{\sin x(\cos h-1)+\sin h \cos x}{h}\\
+    & = \lim_{h \to 0} \frac{\sin x(\cos h-1)}{h}+\lim_{h \to 0} \frac{\sin h \cos x}{h}
+\end{align*}
+Here, $\sin x$ and $\cos x$ do not change based on the limit. Because of this, they are constants to the limit and can be taken out:
+\begin{align*}
+    & = \sin x \left(\lim_{h \to 0} \frac{\cos h-1}{h}\right)+\cos x \left(\lim_{h \to 0} \frac{\sin h}{h}\right)
+\end{align*}
+Previously, we looked at and solved problems with the limit
+$$\lim_{x \to 0} \frac{\sin x}{x}=1$$
+The proof for that limit can also be used to prove that 
+$$\lim_{x \to 0} \frac{\cos x-1}{x}=0$$
+Substituting those values leaves us with
+$$\frac{d}{dx}\sin x=\cos x$$
+The same process can be used with cosine to prove that 
+$$\frac{d}{dx}\cos x=-\sin x$$
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Differentiate the following:\\
+\noindent\\
+(a) \;\;\;\;$(2x^2+3)\cos x$ \\
+\noindent\\
+(b) \;\;\;\;$3x^2+x \sin x$
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 3.1:}\\
+\noindent\\
+(a) Using the product property: 
+\begin{align*}
+    f'(x) & = (2x^3+3)'\cos x+(2x^3+3)(\cos x)'\\
+          & = 6x^2\cos x-\sin x(2x^3+3)
+\end{align*}
+(b) Using the sum and product property:
+\begin{align*}
+    f'(x) & = (3x^2)'+(x\sin x)'\\
+          & = 6x+(x)'(\sin x)+(x)(\sin x)'\\
+          & = 6x+ \sin x +x\cos x
+\end{align*}
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.2} Evaluate $\frac{d}{dx} \tan x$. (Express tan in terms of sin and cos)
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 3.2:} $\tan x=\frac{\sin x}{\cos x}$. We can use the quotient rule to differentiate this:
+\begin{align*}
+    \frac{d}{dx} \tan x & = \frac{d}{dx}\left(\frac{\sin x}{\cos x}\right)\\
+                        & = \frac{(\sin x)'(\cos x)-(\sin x)(\cos x)'}{\cos^2x}\\
+                        & = \frac{\cos^2x+\sin^2x}{\cos^2x}\\
+                        & = \frac{1}{\cos^2x}\\
+                        & = \sec^2x
+\end{align*}
+\section{Derivatives of $e^x$ and $\ln x$} 
+\noindent 
+Listed below are two other crucial derivatives we will commonly use: 
+$$\frac{d}{dx}e^x=e^x$$
+$$\frac{d}{dx}\ln x=\frac{1}{x}$$
+\noindent 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 4.1}  Differentiate the following:\\
+\noindent\\
+(a) \;\;\;\;$e^x\sin x$\\
+\noindent\\
+(b) \;\;\;\;$3\ln x + 3x^2e^x$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 4.1:} \\
+\\
+\noindent 
+(a) Using the product property: 
+\begin{align*}
+    f'(x) &=(e^x)'(\sin x)+(e^x)(\sin x)' \\
+          &=e^x \sin x +e^x \cos x
+\end{align*} 
+\noindent 
+(b) Using the sum and product property: 
+\begin{align*}
+    f'(x) &= (3 \ln x)' + (3x^2e^x)' \\
+          &=3\left(\frac{1}{x}\right)+(3x^2)'(e^x)+(3x^2)(e^x)' \\
+          &=\frac{3}{x}+6xe^x+3x^2e^x
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item Let $f$ and $g$ be differentiable functions. Then, $(f+g)'=f'+g'$. This is the sum property. 
+    \item Let $f$ be a differentiable function, and $c$ a real number. Then,  $(cf)'=c(f')$. This is the constant property. 
+    \item Let $n$ be any real number. If $f(x)=x^n$, then $f'(x)=nx^{n-1}$. This is the power rule. 
+    \item Let $f$ and $g$ be differentiable functions. Then, $(fg)'=f'g+fg'$. This is the product property. 
+    \item Let $f$ and $g$ be differentiable functions. Then,  $\left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}$. This is the quotient property. 
+    \item Listed below are some common derivatives: 
+    $$\frac{d}{dx}\sin x=\cos x$$
+    $$\frac{d}{dx}\cos x=-\sin x$$
+    $$\frac{d}{dx}\tan x=\sec ^2 x$$
+    $$\frac{d}{dx}e^x=e^x$$
+    $$\frac{d}{dx} \ln x=\frac{1}{x}$$
+\end{itemize}
+\section{Exercises}\\
+\noindent
+\textbf{6.1} Differentiate the following:\\
+\noindent\\
+(a) $10x^4-12x^2+2x$\\
+\noindent\\
+(b) $\frac{5}{x^3}-\frac{1}{x^2}$\\
+\noindent\\
+(c) $(3x^2+6)(6x)$\\
+\noindent\\
+(d) $\frac{x^3+2}{2x}$\\
+\noindent\\
+(e) $2\cos x$\\
+\noindent\\
+(f) $2\sin x-5\cos x+7\tan x$\\
+\noindent\\
+(g) $\cot x$\\
+\noindent\\
+(h) $\sec x$\\
+\noindent\\
+(i) $e^x \cos x$ \\
+\\
+\noindent 
+(j) $5x^2e^x+x\ln x$\\
+\\
+\noindent 
+\textbf{6.2} Find the equation of the line tangent to $f(x)=\frac{2x^2+5}{5}$ at $x=5$.
+
+
+
+\end{document}

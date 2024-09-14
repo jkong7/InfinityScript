@@ -1,0 +1,188 @@
+\title{Solids of Revolution-Disks and Washers}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+
+
+\begin{document}
+\maketitle
+\noindent
+\section{Disk method}
+
+In this section, we will find the volume of solids constructed through rotation using definite integrals. \\
+\\
+\noindent 
+To start, take a look at the image below: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot (540).png}
+\end{figure} \\
+\\
+\noindent 
+The blue part of the diagram indicates the region bounded by the graph of $f(x)=\sqrt{x}$, $x=13$, and the $x$-axis. The green part of the diagram indicates the solid obtained through revolving this region about the $x$-axis. We are concerned with finding the volume of this solid. As we know from the previous section, we can find the volume of a solid given a function for the solid's cross-sectional area. \\
+\\
+\noindent 
+The image below depicts the cross sections of the solid: 
+\newpage
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Screenshot (535).png}
+\end{figure}
+\\
+\\
+\noindent 
+Taking a look at the diagram, we see that the cross sections are circles. More precisely, they are circles with radius equal to $f(x)=\sqrt{x}$. The area of these cross sections as a function of $x$ is therefore 
+\begin{align*}
+    A(x) &= \pi r^2 \\
+         &= \pi[f(x)]^2 \\
+         &= \pi[\sqrt{x}]^2 \\
+         &= \pi x
+\end{align*}
+\noindent
+In general, for a solid obtained through revolving the region bounded by $y=f(x)$ and the $x$-axis about the $x$-axis, the cross section taken at a point $x$ has area 
+$$A(x)=\pi[f(x)]^2$$
+\noindent 
+Therefore, the solid, when bounded by $x=a$ and $x=b$, has volume 
+\begin{align*}
+    \text{Volume} &=\int_a^b{A(x) \ dx} \\
+                  &=\int_a^b{\pi[f(x)]^2 \ dx}
+\end{align*}
+\noindent 
+This is known as the disk method for finding volumes of solids since each cross section is shaped as a circular disk.
+\section{Disk method problem}
+\noindent 
+As we have done in the previous two sections, begin each problem by creating a sketch of the desired region. Here, the cross sections and the solid as a whole should be quite easy to visualize; always imagine revolving the region around an axis to create circular disks.  
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Find the volume of the solid obtained by revolving the region bounded by $f(x)=\frac{1}{2}x^2$, $x=-1$, $x=4$, and the $x$-axis about the $x$-axis. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.1:} We begin with a sketch of the region as well as the solid of revolution: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Screenshot (541).png}
+\end{figure}
+\\
+\noindent 
+Each cross section has area 
+\begin{align*}
+    A(x) &=\pi r^2 \\
+         &=\pi \left(\frac{1}{2}x^2\right)^2 \\
+         &=\frac{1}{4}\pi x^4
+\end{align*}
+The volume of the solid is then 
+\begin{align*}
+    \text{Volume} &=\int_a^b A(x) \ dx \\
+                  &= \frac{1}{4}\pi \int_{-1}^4 x^4 \ dx \\ 
+                  &=\frac{1}{4}\pi \left(\frac{x^5}{5}\right) \biggr \rvert_{-1}^4 \\
+                  &=\frac{205}{4}
+\end{align*}
+\noindent 
+The volume formula we previously derived summarizes this process: 
+\begin{align*}
+    \text{Volume} &=\int_a^b{\pi [f(x)]^2 \ dx} \\
+                  &=\pi \int_{-1}^4 \left( \frac{1}{2}x^2\right)^2 \\
+                   &= \frac{1}{4}\pi \int_{-1}^4 x^4 \ dx \\
+                  &=\frac{1}{4}\pi \left(\frac{x^5}{5}\right) \biggr \rvert_{-1}^4 \\
+                  &=\frac{205}{4}
+\end{align*}
+\noindent
+Most disk method questions are very straightforward. The cross-section is always a circle and the area of the circle can be derived easily from the given function. 
+\section{Washer method}
+\noindent 
+The next solid of revolution we will look at consists of holes. The image below shows one such solid: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7.15cm]{Screenshot (543).png}
+\end{figure} \\
+\\
+\noindent 
+The blue part of the diagram indicates the region bounded by the graph of $f(x)=\frac{1}{2}x^2+1$, $g(x)=x$, the $y$-axis, and $x=4$. The green part of the diagram indicates the solid formed through revolving this region about the $x$-axis. \\
+\\
+\noindent 
+As seen, this solid consists of a hole instead of having an entirely solid interior. This hole is the solid of revolution obtained through revolving the region bounded by $g(x)=x$, which is the \say{inner} function, and the $x$-axis about the $x$-axis. The hole has a volume of $\int_a^b{\pi[g(x)]^2 \ dx}$. Without the hole, the solid would have a volume of $\int_a^b{\pi[f(x)]^2 \ dx}$. The volume of our solid can therefore be obtained through subtracting the volume of the hole:
+\begin{align*}
+    \text{Volume} &=\int_a^b{\pi[f(x)]^2 \ dx}-\int_a^b{\pi[g(x)]^2 \ dx} \\
+                  &=\int_a^b{\pi([f(x)]^2-[g(x)]^2) \ dx} \Leftarrow \text{General formula} \\
+                  &=\pi \int_0^4{([\tfrac{1}{2}x^2+1]^2-[x]^2) \ dx} \\
+                  &=\pi \int_0^4{(\tfrac{1}{4}x^4+1)} \ dx \\
+                  &=\pi \left(\frac{1}{20}x^5+x\right) \biggr \rvert_0^4 \\
+                  &=\frac{276}{5}\pi
+\end{align*}
+\section{Washer method problem}
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 4.1} Find the volume of the solid obtained by revolving the region bounded by $f(x)=\sqrt{x}$ and $g(x)=x^2$ about the $x$-axis. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 4.1:} We begin with a sketch of the region as well as the solid of revolution: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8cm]{Screenshot (545).png}
+\end{figure}
+\\
+
+\noindent 
+Next, to find the limits of integration, we find the intersection of the two curves: 
+$$\sqrt{x}=x^2$$
+$$x=0,1$$
+\noindent
+Our volume integration is then as follows: 
+\begin{align*}
+    \text{Volume} &=\int_a^b{\pi([f(x)]^2-[g(x)]^2) \ dx} \\
+    &=\pi \int_0^1{([\sqrt{x}]^2-[x^2]^2) \ dx} \\
+    &=\pi \int_0^1{(x-x^4) \ dx} \\
+    &=\pi \left(\frac{x^2}{2}-\frac{x^5}{5}\right) \biggr \rvert_0^1 \\
+    &=\frac{3}{10}\pi
+\end{align*}
+\section{Revolving around the $y$-axis}
+\noindent 
+Solids formed by $y$-axis revolution have the following mirrored volume formulas: 
+$$\text{Volume}=\int_c^d{\pi[u(y)]^2 \ dy} \Leftarrow \text{Disks}$$
+$$\text{Volume}=\int_c^d{\pi[w(y)]^2-[v(y)]^2 \ dy} \Leftarrow \text{Washers}$$
+\noindent 
+\section{Recap points}
+\begin{itemize}
+    \item The volume of a solid formed by revolving a region around an axis can be determined using definite integrals. 
+    \item When a region is revolved around an axis, the resulting solid has circular cross sections. Finding the volumes of such solids is known as using the disk method.
+    \item When a region bounded by two functions is revolved around an axis, the resulting solid has a hole and not a full circular cross section. Finding the volumes of such solids is known as using the washer method. 
+    \item Begin all solid of revolution problems with at least a sketch of the solid's base. It may also be a good idea to sketch a partial 3D chunk as it helps further visualize the solid. 
+    \item The disk method expressions are as follows: 
+    $$\int_a^b{\pi[f(x)]^2} \ dx\Leftarrow \text{Revolving around the} \ x \text{-axis on the interval} \ [a,b]$$
+    $$\int_c^d{\pi[u(y)]^2 \ dy}\Leftarrow \text{Revolving around the} \ y\text{-axis on the vertical interval} \  [c,d]$$
+    \item The washer method expressions are as follows: 
+    $$\int_a^b{\pi([f(x)]^2-[g(x)]^2) \ dx} \Leftarrow \text{Revolving around the} \ x\text{-axis on the interval} \ [a,b]$$
+    $$\int_c^d{\pi[w(y)]^2-[v(y)]^2 \ dy} \Leftarrow \text{Revolving around the} \ y\text{-axis on the vertical interval} \ [c,d]$$
+    
+\end{itemize}
+\section{Exercises} \\
+\\
+\noindent 
+\textbf{7.1} Find the volume of the solid obtained by revolving the region bounded by $f(x)=4-x^2$ and the $x$-axis about the $x$-axis.\\
+\\
+\noindent 
+\textbf{7.2} Find the volume of the solid obtained by revolving the region bounded by $f(x)=3x$ and $g(x)=x^2$ about the $x$-axis. \\
+\\
+\noindent 
+\textbf{7.3} Find the volume of the solid obtained by revolving the region bounded $y=x^4$, $y=2$, and the $x$-axis about the $y$-axis.\\
+\end{document}

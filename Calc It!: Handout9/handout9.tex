@@ -1,0 +1,279 @@
+\title{Analytical Applications of the Derivative: Part One}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent
+
+\section{Intervals of increase and decrease}
+\noindent
+In this section, we will use the derivative for one of its most useful applications, which is to analyze the graphs of functions. We will explore the behavior of a function's graph through the lens of the derivative. Recall from the last section our work with the mean value theorem, which states that if $f$ is a function continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$, then there is at least one point $c$ in $(a,b)$ such that 
+$$f'(c) = \frac{f(b)-f(a)}{b-a}$$
+\noindent 
+We use the Mean Value theorem to examine the following three cases: \\
+\\
+\noindent 
+1. $f'(x)>0$ for all $x$ in the domain of $f$:\\
+\\
+\noindent 
+In the equation given by the Mean Value theorem, it is always true that $b-a>0$. Because $f'(x)>0$ for all $x$ in the domain of $f$, $f'(c)>0$. Therefore, it must be true that 
+$$f(b)-f(a)>0 \Rightarrow f(b)>f(a)$$
+\noindent 
+2. $f'(x)<0$ for all $x$ in the domain of $f$: \\
+\\
+\noindent 
+In the equation given by the Mean Value theorem, it is always true that $b-a>0$. Because $f'(x)<0$ for all $x$ in the domain of $f$, $f'(c)<0$. Therefore, it must be true that 
+$$f(b)-f(a)<0 \Rightarrow f(b)<f(a)$$
+\noindent 
+3. $f'(x)=0$ for all $x$ in the domain of $f$: \\
+\\
+\noindent 
+ In the equation given by the Mean Value theorem, it is always true that $b-a>0$. Because $f'(x)=0$ for all $x$ in the domain of $f$, $f'(c)=0$. Therefore, it must be true that 
+$$f(b)-f(a)=0 \Rightarrow f(b)=f(a)$$
+\noindent 
+What do these results mean? If $f'(x)>0 \Rightarrow f(b)>f(a)$, we deem $f$ to be \textbf{increasing}, or \say{always rising}. If $f'(x)<0 \Rightarrow f(b)<f(a)$, we deem $f$ to be \textbf{decreasing}, or \say{always falling}. If $f'(x)=0 \Rightarrow f(b)=f(a)$, $f$ is a constant function and the shape of its graph is a horizontal line. \\
+\\
+\noindent 
+This is quite easy to visualize. If the slope of the tangent line is always positive, the function has to rise and increase. Similarly, if the slope of the tangent line is always negative, the function has to fall and decrease. If the slope of the tangent line is always zero, the function must be constant. 
+\newpage
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Given below is the graph of the function $f$. Determine whether $f'$ is positive, negative, or zero at each labeled point.
+\end{tcolorbox} \\
+\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8.5cm]{Screenshot (563).png}
+\end{figure} \\
+\\
+\noindent 
+\textit{Solution to Problem 1.1:} To solve this problem, we use the following correlations: 
+$$f \ \text{is increasing} \Leftrightarrow f'>0$$
+$$f \ \text{is decreasing} \Leftrightarrow f'<0$$
+$$f \ \text{is constant} \Leftrightarrow f'=0$$
+\noindent 
+$f$ is increasing at points C and D, decreasing at points B and E, and constant at point A. Therefore, $f'$ is positive at points C and D, negative at points B and E, and zero at point A. 
+
+
+
+
+
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.2} Is the function $f(x)=x^3-3x^2+5$ increasing, decreasing, or neither at $x=3$? 
+\end{tcolorbox}
+\noindent
+\textit{Solution to Problem 1.2:} To solve this problem, we find the derivative of the function and then analyze its sign at $x=3$: $$f'(x)=3x^2-6x$$
+$$f'(3)=3(3^2)-6(3)=9$$
+\noindent 
+Because $f'(3)>0$, $f$ is increasing at $x=3$. 
+\section{Concavity}
+\noindent 
+The second derivative of a function can also tell us a lot about its graph. We will look at the following correlations: 
+$$f' \ \text{is increasing} \Leftrightarrow f''>0$$
+$$f' \ \text{is decreasing} \Leftrightarrow f''<0$$
+$$f' \ \text{is constant} \Leftrightarrow f''=0$$
+\noindent 
+A function is defined to be \textbf{concave up} where $f''>0$ and defined to be \textbf{concave down} where $f''<0$. Let's examine the effect of second derivative sign on the shapes of graphs. \\
+\\
+\noindent 
+Concave up shapes: \\
+\\
+\noindent 
+$f''>0 \ \text{and} \ f'>0$: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{Screenshot (564).png}
+\end{figure}\\
+\\
+\noindent 
+The graph is rising and the tangent lines to the graph are getting steeper. The graph is increasing and concave up or \say{increasing at an increasing rate}. \\
+\\
+\noindent 
+$f''>0 \ \text{and} \ f'<0$: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{Screenshot (565).png}
+\end{figure} \\
+\\
+\noindent 
+The graph is falling and the tangent lines to the graph are getting less steep. The graph is decreasing and concave up or \say{decreasing at a decreasing rate}.
+\noindent 
+Concave down shapes: \\
+\\
+\noindent 
+$f''<0 \ \text{and} \ f'>0$: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{Screenshot (566).png}
+\end{figure}
+
+\noindent 
+The graph is rising and the tangent lines to the graph are getting less steep. The graph is increasing and concave down or \say{increasing at a decreasing rate}. \\
+\\
+\noindent 
+$f''<0 \ \text{and} \ f'<0$: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{Screenshot (567).png}
+\end{figure}
+\newpage
+\noindent 
+The graph is falling and the tangent lines to the graph are getting steeper. The graph is decreasing and concave down or \say{decreasing at a decreasing rate}. \\
+\\
+\noindent 
+If $f''>0$, the slope of the first derivative becomes more positive. This has the effect of making an increasing function more steep and a decreasing function less steep. A good visual to remember for concave up functions is the shape of a smiley-face. \\
+\\
+\noindent 
+If $f''<0$, the slope of the first derivative becomes more negative. This has the effect of making a decreasing function more steep and an increasing function less steep. A good visual to remember for concave down functions is the shape of an upside-down smiley-face. \\
+\\
+\noindent 
+In the next problem, we analyze the concavity of the same graph we previously looked at. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Given below is the graph of the function $f$. Determine whether $f''$ is positive, negative, or zero at each labeled point.
+\end{tcolorbox}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=8.5cm]{Screenshot (563).png}
+\end{figure}
+\noindent 
+\textit{Solution to Problem 2.1:} To solve this problem, we use the following correlations: 
+$$f' \ \text{is increasing} \Leftrightarrow f''>0$$
+$$f' \ \text{is decreasing} \Leftrightarrow f''<0$$
+$$f' \ \text{is constant} \Leftrightarrow f''=0$$
+\noindent 
+At points A and E, the tangent lines do not change in steepness and so $f'$ is constant. At points B and D, the graph \say{opens up} and the slope of the tangent lines become more positive so $f'$ is increasing. At point C, the graph \say{opens down} and the slope of the tangent lines become more negative so $f'$ is decreasing. Therefore, $f''$ is positive at points B and D, negative at point C, and zero at points A and E.  
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} For the function $f(x)=x^5-4x$, determine whether it is increasing/decreasing and whether it is concave up/concave down at $x=-1$. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.2:} To solve this problem, we find the first and second derivatives of the function and analyze their signs at $x=-1$:
+$$f'(x)=5x^4-4$$
+$$f''(x)=20x^3$$
+$$f'(-1)=5(-1)^4-4=1>0 \Rightarrow \text{increasing}$$
+$$f''(-1)=20(-1)^3=-20<0 \Rightarrow \text{concave down}$$
+\section{Critical points, inflection points, and sign charts}
+\noindent 
+A \textbf{critical point} is a point $x=c$ in the domain of a function $f$ such that 
+$$f'(c)=0 \ \text{or} \ f'(c) \ \text{doesn't exist}$$
+\noindent 
+A critical point is a point where the tangent line is $\text{horizontal} \Rightarrow f'(c)=0$ or $\text{vertical} \Rightarrow f'(c) \ \text{doesn't exist}$. Critical points are extremely important for finding \textbf{extrema}, a concept we will cover later. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Determine all critical points for the function 
+$$f(x)=3x^3+\frac{33}{2}x^2-12x+10$$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 3.1:} We first need the derivative of the function: 
+$$f'(x)=9x^2+33x-12$$
+\noindent 
+Next, we set the derivative equal to zero and solve:
+$$9x^2+33x-12=0$$
+$$3(3x^2+11x-4)=0$$
+$$3(3x-1)(x+4)=0$$
+$$x=\frac{1}{3}, -4$$
+\noindent 
+Because the derivative is a polynomial function, it exists everywhere. Therefore, our only critical points are 
+$$x=\frac{1}{3}, -4$$
+\\
+\noindent 
+An \textbf{inflection point} is a point where a function changes concavity. At an inflection point, the function either changes from concave down to concave up or from concave up to concave down. Inflection points can be found by considering where the second derivative changes sign. 
+\begin{tcolorbox}
+[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.2} Determine all inflection points for the function 
+$$f(x)=\frac{1}{6}x^4-\frac{8}{3}x^3+15x^2-8$$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 3.2:} We first need the second derivative of the function: 
+$$f'(x)=\frac{2}{3}x^3-8x^2+30x$$
+$$f''(x)=2x^2-16x+30$$
+\noindent 
+For the sign of a function to change, it must occur at a zero. Therefore, we find the zeroes of the second derivative: 
+$$2x^2-16x+30=0$$
+$$2(x^2-8x+15)=0$$
+$$2(x-5)(x-3)=0$$
+$$x=5,3$$
+\noindent 
+Although finding zeroes is necessary to find inflection points, the zeroes of the second derivative are not necessarily inflection points. Our next step consists of checking whether the sign of the second derivative actually changes at each zero. For this, a very useful tool is the \textbf{sign chart}, which indicates the sign of the second derivative over important intervals: \\
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+\begin{center}
+\sgchart{3,5}  {f'':+--}
+\end{center}
+The sign chart indicates the following: 
+$$x<3 \Rightarrow f''>0$$
+$$3<x<5 \Rightarrow f''<0$$
+$$x>5 \Rightarrow f''>0$$
+\noindent 
+Plugging in just one value in each interval allows us to make such conclusions. For example, because $f''(4)=-2<0$, we can conclude that $3<x<5 \Rightarrow f''<0$. Here, we see that the sign of $f''$ changes at each zero and so $(3, f(3))\Rightarrow (3, \frac{137}{2})$ and $(5, f(5)) \Rightarrow (5, \frac{827}{6})$ are inflection points. 
+\section{Recap points}
+\begin{itemize}
+    \item The mean value theorem gives the following three results: 
+   $$f \ \text{is increasing} \Leftrightarrow f'>0$$
+$$f \ \text{is decreasing} \Leftrightarrow f'<0$$
+$$f \ \text{is constant} \Leftrightarrow f'=0$$
+    \item A function is defined to be \textbf{concave up} where $f''>0$ and defined to be \textbf{concave down} where $f''<0$. 
+    \item In the lens of concavity, the relationships above can be written as follows: 
+    $$f' \ \text{is increasing} \Leftrightarrow f''>0$$
+$$f' \ \text{is decreasing} \Leftrightarrow f''<0$$
+$$f' \ \text{is constant} \Leftrightarrow f''=0$$
+\item A concave up graph takes the form of a smiley-face while a concave down graph takes the form of an upside down smiley-face. 
+\item A critical point is a point $x=c$ in the domain of a function $f$ such that 
+$$f'(c)=0 \ \text{or} \ f'(c) \ \text{doesn't exist}$$
+\item An inflection point is a point where the concavity of a function changes. This is where the sign of the second derivative changes. 
+\end{itemize}
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{5.1} Is the function $f(x)=x^5-5x^3+3x$ increasing, decreasing, or neither at $x=2$? \\
+\\
+\noindent 
+\textbf{5.2} For the function $f(x)=x^3-15x^2$, determine whether it is increasing/decreasing and whether it is concave up/concave down at $x=3$.  \\
+\\
+\noindent 
+\textbf{5.3} Determine all critical points for the function $f(x)=4x^3-14x^2+16x$. \\
+\\
+\noindent 
+\textbf{5.4} Determine all inflection points for the function $f(x)=\frac{1}{12}x^4-\frac{2}{3}x^3-\frac{5}{2}x^2$.
+\end{document}

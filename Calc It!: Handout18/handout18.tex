@@ -1,0 +1,260 @@
+\title{The Definite Integral}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{The area under a curve and definite integrals}
+\noindent
+In previous sections, we asked ourselves, \textit{what is the slope of a tangent line}? This question is the fundamental backbone of derivative calculus. \\
+\\
+\noindent 
+In this section, we use the integral to deal with the question, \textit{what is the area under a curve}? \\
+\\
+\noindent 
+These two questions along with their answers make up the entire backbone of calculus. \\
+\\
+\noindent
+In the last section, we already shifted our focus onto integral calculus. We introduced indefinite integrals, which represent a family of functions whose derivatives are all the same. Primarily, we dealt with the concept of reversing differentiation. We will now use the integral in another light. \\
+\\
+\noindent
+Let's begin our study of area under a curve by examining the following image: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=14cm]{no.png}
+\end{figure}\\
+\noindent 
+We can use simple geometry rules to find areas of polygons such as triangles and rectangles, but we know of no set formula that deals with curvature. For now, we can get close by approximating the area using a shape we know the area of. The image below is an approximation using four rectangles of equal width:\\
+\\
+\noindent 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=14cm]{uh.png}
+\end{figure}
+\newpage
+\noindent 
+As you can see, the approximation is not very close. Depending on the shape of the curve, the rectangle approximation will either overestimate or underestimate the area, and in this case, the area is severely underestimated. However, we can get closer by using more rectangles. The next image shows an approximation using ten rectangles of equal width: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=14cm]{yes.png}
+\end{figure}
+\\
+\noindent 
+This is much closer. As the number of rectangles increases, the approximation becomes closer and closer to the actual area. The next image represents an approximation using fifty rectangles with equal width: 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{wuh.png}
+\end{figure} 
+\newpage 
+\noindent 
+This process demonstrated leads us to the following result: the approximation of the area under a curve using an infinite amount of rectangles with equal width is equal to the actual area. \\
+\\
+\noindent 
+Such area approximations are known as \textbf{Riemann sums}. We can express the infinite-rectangle Riemann sum using the following expression: 
+$$\lim_{n \to \infty} \sum_{i=1}^{n} \Delta x \cdot f(x_i)$$
+\noindent 
+$f(x_i)$ gives the height of each rectangle and $\Delta x$ the fixed width of each rectangle. The left portion represents taking the number of rectangles to infinity. \\
+\\
+\noindent 
+We now connect this to the \textbf{definite integral}. The definite integral of a continuous function $f$ over the interval $[a,b]$ is denoted as $\int_a^b f(x) \ dx$, and, by definition, is the infinite-rectangle Riemann sum: 
+$$\int_a^b f(x) \ dx=\lim_{n \to \infty} \sum_{i=1}^{n} \Delta x \cdot f(x_i)$$
+\noindent 
+Therefore, the definite integral of a continuous function $f$ from $a$ to $b$ gives the area under $f$ in that interval. \\
+\\
+\noindent 
+It is important that you make sense of the concepts so far covered. We can approximate the area under a curve using rectangles of equal width, an approximation method known as Riemann sums. As the number of rectangles increases, the approximation becomes more accurate. Therefore, the limit of the Riemann sum as the number of rectangle subdivisions approaches infinity gives the precise area under a curve. Because the definite integral is defined as this limit, it too gives the precise area under a curve. \\
+\\
+\noindent 
+The definite integral differs from the indefinite integral in that it has one definite value, an attribute that gives it its name. $a$ is known as the lower limit and $b$ the upper limit of the definite integral. \\
+\\
+\noindent 
+In the following problem, make a relationship between area under a curve, intervals, and definite integrals. 
+\newpage
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 1.1} Given below is the graph of the function $f(x)=\frac{1}{2} \sin x^2$. Write but do not evaluate a definite integral that gives the indicated area. 
+\end{tcolorbox}
+\noindent 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{nuh.png}
+\end{figure}\\
+\noindent
+\textit{Solution to Problem 1.1:} The interval in which the area lies is $[-1,2]$. Therefore, the definite integral that gives the indicated area is 
+\begin{align*}
+\int_a^b f(x) \ dx &= \int_{-1}^2 f(x) \ dx \\
+                   &=\int_{-1}^2 \frac{1}{2} \sin x^2 \ dx
+\end{align*}
+\section{Fundamental theorem of calculus part 1}
+\noindent 
+We will now look at two very important calculus theorems which are collectively known as the fundamental theorems of calculus. \\
+\\
+\noindent 
+The fundamental theorem of calculus part 1 states: \\
+\\
+\noindent 
+Let $f$ be a continuous function on the interval $[a,b]$. Define $g$ by 
+$$g(x)=\int_a^x f(t) \ dt$$
+\noindent 
+Then, $g'(x)=f(x)$. \\
+\\
+\noindent 
+This can also be written as 
+$$\frac{d}{dx}\int_a^x f(t) \ dt=f(x)$$
+\noindent 
+This is an immensely important calculus result. It shows that differentiation and integration are inverse processes; in other words, if you first integrate a function and then take the derivative of the result, you get back to the original function. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Differentiate the following functions: \\
+\\
+\noindent 
+(a) $g(x)=\int_1^x \sqrt{4t+2} \ dt$  \\
+\\
+\noindent 
+(b) $g(x)=\int_{-\frac{\pi}{6}}^x (\sin^2 t+\cos t) \ dt$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.1:} \\
+\\
+\noindent
+(a) We apply the fundamental theorem of calculus part 1 to differentiate: 
+\begin{align*}
+g'(x) &=\frac{d}{dx}\int_1^x \sqrt{4t+2} \ dt \\
+      &=\sqrt{4x+2} 
+\end{align*} 
+\noindent 
+(b) The differentiation process here is the same: 
+\begin{align*}
+g'(x) &=\frac{d}{dx}\int_{-\frac{\pi}{6}}^{x}(\sin ^2 t + \cos t) \ dt \\
+      &=\sin^2 x+\cos x
+\end{align*}
+\noindent 
+Note that the the lower limit of the integral does not impact the derivative.
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} Function $g$ is defined as follows: 
+$$g(x)=\int_{-5}^x \frac{x^3+5x}{10} \ dx$$
+\noindent 
+Calculate $g'(2)$
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 2.2:} We begin by differentiating $g$: 
+\begin{align*}
+g'(x) &=\frac{d}{dx} \int_{-5}^x \frac{x^3+5x}{10} \ dx \\
+      &=\frac{x^3+5x}{10}
+\end{align*}
+\noindent 
+We then evaluate this at $x=2$: 
+\begin{align*}
+    g'(2) &=\frac{8+10}{10} \\
+          &=\frac{9}{5}
+\end{align*}
+\noindent 
+\section{Fundamental theorem of calculus part 2}
+\noindent 
+Now, we will look at the fundamental theorem of calculus part 2, which gives us a way to evaluate definite integrals. It states: \\
+\\
+\noindent 
+If $f$ is continuous on $[a,b]$, and $F$ is the anti derivative of $f$ ($F'=f$), then 
+$$\int_a^b{f(x)} \ dx=F(x)\biggr\rvert_a^b=F(b)-F(a)$$
+\noindent 
+This is very intuitive. We first take the anti derivative of the integral like we would when evaluating indefinite integrals. Then, we evaluate it at the two ends and subtract the bottom value from the top. The big bar notation is used to indicate the evaluation of the integral at the two endpoints. Always include this symbol in one of your steps when evaluating definite integrals. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 3.1} Evaluate the following definite integrals: \\
+\\
+\noindent 
+(a) $\int_{-2}^2 (x^3-2) \ dx$ \\
+\\
+\noindent 
+(b) $\int_0^8 6e^x \ dx$ \\
+\\
+\noindent 
+(c) $\int_{0}^{\frac{\pi}{2}} (5\sin{x}-\cos x) \ dx$\\
+\end{tcolorbox}
+\noindent 
+\textit{Solution to Problem 3.1:} \\
+\\
+\noindent 
+(a) We take the anti derivative, evaluate it at the two endpoints, and subtract: 
+\begin{align*}
+    \int_{-2}^2 (x^3-2) \ dx    
+                         &=\left(\frac{x^4}{4}-2x\right)\biggr\rvert_{-2}^2 \\
+                         &=\left(\frac{2^4}{4}-2(2)\right)-\left(\frac{(-2)^4}{4}-2(-2)\right) \\
+                         &=-8
+\end{align*} 
+\noindent 
+(b) We take the anti derivative, evaluate it at the two endpoints, and subtract: 
+\begin{align*}
+    \int_0^8 6e^x \ dx &=6e^x\biggr\rvert_0^8 \\
+                       &=6e^8-6e^0 \\
+                       &=6e^8-6
+\end{align*}
+\noindent 
+(c) We take the anti derivative, evaluate it at the two endpoints, and subtract: 
+\begin{align*}
+    \int_0^{\frac{\pi}{2}}(5\sin x-\cos x) \ dx &=(-5\cos x-\sin x)\biggr\rvert_0^{\frac{\pi}{2}} \\
+                                                &=(-5\cos \frac{\pi}{2}-\sin \frac{\pi}{2})-(-5\cos 0-\sin 0) \\
+                                                &=4
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item The definite integral provides the answer to the question: what is the area under a curve? 
+    \item We can use Riemann sums to approximate the area under a curve. If we fill the area under a curve with rectangles of equal width, the more rectangles there are, the close the approximation becomes. 
+    \item Taking the limit of the number of rectangle subdivisions to infinity yields the exact area under a curve. 
+    \item The definite integral is defined as this infinite-rectangle Riemann sum. The equation that represents this relationship is as follows: 
+    $$\int_a^b f(x) \ dx=\lim_{n \to \infty} \sum_{i=1}^{n} \Delta x \cdot f(x_i)$$
+    \item The fundamental theorem of calculus part 1 states that differentiation and integration are inverse operations:
+    $$\frac{d}{dx}\int_a^x f(t) \ dt=f(x)$$
+    \item The fundamental theorem of calculus part 2 gives a way to evaluate definite integrals: 
+    $$\int_a^b{f(x)} \ dx=F(x)\biggr\rvert_a^b=F(b)-F(a)$$
+    Here, $F$ is the anti-derivative of $f$
+\end{itemize}
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{5.1} Write and evaluate an integral expression for the area under $y=\frac{1}{2}x^3$ between $x=-1$ and $x=2$. \\
+\\
+\noindent
+\textbf{5.2} Differentiate the following functions: \\
+\\
+\noindent 
+(a) $g(x)=\int_{-2}^x (e^t+2\cos t) \ dt$\\
+\\
+\noindent 
+(b) $g(x)=\int_{1}^x (\sqrt{t^3+2t}) \ dt$ \\
+\\
+\noindent 
+\textbf{5.3} Evaluate the following definite integrals: \\
+\\
+\noindent 
+(a) $\int_{1}^5x^4 \ dx$ \\
+\\
+\noindent 
+(b) $\int_{0}^{10} (e^x-x^3) \ dx$ \\
+\\
+\noindent 
+(c) $\int_{2}^{6} (\frac{2}{x}-5x) \ dx$ \\
+\\
+\noindent 
+\end{document}

@@ -1,0 +1,122 @@
+\title{Average Value of a Function}
+\author{Jonathan Kong}
+\date{}
+\documentclass[11pt]{scrartcl}
+\usepackage{subfiles}
+\usepackage[sexy]{evan}
+\usepackage[utf8]{inputenc}
+\usepackage{ upgreek }
+\usepackage{geometry}
+\geometry{%}
+  letterpaper,
+  lmargin=1.5cm,
+  rmargin=1.5cm,
+  tmargin=2 cm,
+  bmargin=2cm,
+  footskip=12pt,
+  headheight=13.6pt}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}\usepackage{dcolumn}
+\newcolumntype{2}{D{.}{}{2.0}}
+\begin{document}
+\maketitle
+\noindent 
+
+\section{Average value of a function using definite integrals}
+\noindent
+In this section, we will use definite integrals to find the average value of a function. \\
+\\
+\noindent 
+Let's recap what we know about the average value, or mean, of a set of finite values. For $n$ values, the average value is the total sum divided by $n$. \\
+\\
+\noindent 
+We will use this idea as the backbone for the average value of a function. \\
+\\
+\noindent 
+Here, the \say{sum} for a function can be represented by a definite integral. For a continuous function $f$, the \say{sum} over an interval $[a,b]$ is 
+$$\int_{a}^{b} f(x) \ dx$$
+The length of the interval, $b-a$, will be the \say{number of values} and dividing the \say{sum} by this yields the average value of $f$: 
+$$\frac{1}{b-a}\int_{a}^{b} f(x) \ dx$$ 
+\noindent 
+We will now look at a few situations where this expression is applied. 
+\section{Average value of a function problems}
+\noindent 
+For the following problems and exercises, it may be necessary to use a graphing calculator or some other tool that allows for computing definite integrals. Round all answers to three decimal places. 
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.1} Find the average value of the function $f(x)= \sqrt[4]{x}$ on the interval $[0,10]$.
+\end{tcolorbox}
+\noindent
+\textit{Solution to problem 2.1:} We are given a function as well as an interval. We can therefore find the average value of the function over the interval using the average value expression: 
+\begin{align*}
+    \text{Average value} &=\frac{1}{10-0}\int_{0}^{10} \sqrt[4]{x} \ dx \\
+    &=\frac{1}{10}\left(\frac{4}{5}x^{\frac{5}{4}}\right)\biggr \rvert_0^{10} \\
+    &=1.423
+\end{align*}
+\noindent 
+We can more precisely think of average value as the average height of a function in a given interval. The area under a curve is comprised of infinitesimally small rectangular strips, and so if we divide it by the length of the interval, we get the average height. \\
+\\
+\noindent
+In the next problem, we use the average value of a function to calculate average velocity over a time interval:
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.2} A particle moves along a coordinate line so that its velocity at time $t$ is given by $v(t)=\sin t + \cos t$. Find the average velocity of the particle on the time interval $0\leq t\leq \pi$.
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.2:} We are given the velocity function as well as a time interval. We can therefore find the average velocity during the time interval using the average value expression: 
+\begin{align*}
+    \text{Average velocity} &=\frac{1}{\pi -0}\int_{0}^{\pi}{v(t) \dt} \\
+                            &=\frac{1}{\pi}\int_{0}^{\pi}{(\sin t + \cos t) \ dt} \\
+                        &=\frac{1}{\pi}(-\cos t +\sin t)\biggr \rvert_0^\pi  \\
+                        &=\frac{1}{\pi}
+\end{align*}
+\noindent 
+If an item has a value that changes with respect to time, an average value for that item over a time interval can be calculated:
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black]
+\textbf{Problem 2.3} The value of a car in dollars after $t$ years of its release to the public is given by $C(t)=\frac{50,000}{t^{3/2}}$. Find the average value of the car between its second and eighth year. 
+\end{tcolorbox}
+\noindent 
+\textit{Solution to problem 2.3:} We are given a function for the price of the car as well as a time interval. We can therefore find the average value of the car during the time interval using the average value expression: 
+\begin{align*}
+    \text{Average value of car} &=\frac{1}{8-2}\int_{2}^{8}{C(t) \ dt} \\
+    &=\frac{1}{6}\int_{2}^{8}{\frac{50,000}{t^\frac{3}{2}}} \\
+    &=\frac{1}{6}(-100,000t^{-\frac{1}{2}})\biggr \rvert_2^8 \\
+    &=5892.557
+\end{align*}
+\section{Recap points}
+\begin{itemize}
+    \item The average value of a continuous function over an interval is the area under the curve divided by the length of the interval. This can also be thought of as the average height of the function. 
+    \item The average value expression for a continuous function $f$ over the interval $[a,b]$ is as follows: 
+    $$\frac{1}{b-a}\int_a^b f(x) \ dx$$
+\end{itemize}
+
+
+
+\section{Exercises}\\
+\\
+\noindent 
+\textbf{4.1} Find the average value of the following functions over the given intervals. \\
+\\
+\noindent
+(a) $f(x)=\sqrt{x} ; \;[4,9]$\\
+\\
+\noindent 
+(b) $f(x)=\frac{x+2}{\sqrt{x^2+2x+5}} ; \; [3,8]$\\
+\\
+\noindent 
+(c) $f(x)=x\cos (x^2) ; \; [0, \frac{\pi}{4}]$\\
+\\
+\noindent 
+\textbf{4.2} Given that $f(x)=-\frac{5}{(x+1)^2}$ on the interval $[-5,-2]$, determine the value $c$ on the interval such that $f(c)=f_{avg}$, where $f_{avg}$ is the average value of $f$ on the given interval. \\
+\\
+\noindent 
+\textbf{4.3} Between 12:00 PM and 1:30 PM, the rate, in people per minute, at which moviegoers enter a theater is given by $M(t)=80\sqrt{t}-\frac{t}{\sqrt{t^2+1}}$, where $t$ is measured in hours since noon. Find the average rate, in people per minute, at which moviegoers enter this theater during this time.\\
+\\ \noindent 
+
+
+
+\end{document}
